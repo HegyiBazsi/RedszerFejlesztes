@@ -15,5 +15,5 @@ class Controller
 	public String[] getContacts()
 	{
 		return model.getContacts();
-	}
+	}		
 }

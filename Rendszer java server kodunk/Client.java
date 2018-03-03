@@ -2,7 +2,6 @@ import java.io.*;
 
 class Client
 {
-
 	public static void main(String[] args)
 	{
 		new Client().start();

@@ -1,8 +1,8 @@
 import java.io.*;
 import java.net.*;
 
-class Server{
-
+class Server
+{
 	public static void main(String[] args)
 	{
 		new Server().start();
@@ -23,16 +23,9 @@ class Server{
 				System.out.println("client connected");
 				BufferedReader input =new BufferedReader(new InputStreamReader(client.getInputStream()));
 				String cmd = input.readLine();
-				System.out.println("command: " + cmd);
-				// decode
-				// get list
-				String[] friends = contr.getContacts();
+				System.out.println("command: " + cmd);				
 				// send back to client
-				PrintWriter out =new PrintWriter(client.getOutputStream(), true);
-				out.println(friends.length);	// send to client
-				for(int i=0; i<friends.length; i++){
-					out.println(friends[i]);
-				}
+				PrintWriter out =new PrintWriter(client.getOutputStream(), true);				
 			}
 		}
 		catch(IOException e)
@@ -50,5 +43,4 @@ class Server{
 			}
 		}
 	}
-
 }
