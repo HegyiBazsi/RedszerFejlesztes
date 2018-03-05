@@ -5,13 +5,20 @@ import java.util.Scanner;
 class View
 {
 	private Controller contr;
-	Raklap[] lists = new Raklap[10]; 
+	Raklap[] lists = new Raklap[10];
 	public View()
 	{
-		lists[0] = new Raklap("Simon","Gyuszi","Hulyeseg megelozo tabletta",100);
-		lists[1]  = new Raklap("Heckl","Pista","Homloker kenocs",200);		
+		//lists[0] = new Raklap("Simon","Gyuszi","Hulyeseg megelozo tabletta",100);
+		//lists[1]  = new Raklap("Heckl","Pista","Homloker kenocs",200);
+		BufferedReader in = new BufferedReader(new FileReader("foglalas.txt"));
+		String line;
+		while((line = in.readLine()) != null)
+		{
+
+		}
+		in.close();
 	}
-			
+
 	public View(Controller contr)
 	{
 		this.contr = contr;
@@ -24,11 +31,11 @@ class View
 		System.out.println("1 - Foglalas Felvitele");
 		System.out.println("2 - Listazas");
 		System.out.println("3 - Modositas");
-		System.out.println("4 - Torles");	
+		System.out.println("4 - Torles");
 		System.out.println("9 - Exit");
 	}
 
-/*---------E X E C U T E   S E R V E R-------*/	
+/*---------E X E C U T E   S E R V E R-------*/
 	public boolean executeServer()
 	{
 		try
@@ -50,7 +57,7 @@ class View
 		{
 			int cmd = getUserInput();
 			switch (cmd)
-			{				
+			{
 				case 1: FoglalasFelvitele(); break;
 				case 2: Listazas(); break;
 				case 3: Modositas(); break;
@@ -75,19 +82,19 @@ class View
 	private void FoglalasFelvitele()
 	{
 		System.out.println();
-		System.out.println("Kerem Toltse ki a foglalas adatait!");	
+		System.out.println("Kerem Toltse ki a foglalas adatait!");
 
 		try
 		{
 			System.out.println("\nAdja meg a vezeteknevet: ");
-			String new_secondName = readboardInput();	
-			System.out.println("\nAdja meg a keresztnevet: ");			
-			String new_firstName = readboardInput();			
-			System.out.println("\nAdja meg az aru nevet: ");			
-			String new_goods = readboardInput();		
-			System.out.println("\nAdja meg az aru mennyiseget: ");			
-			int new_quantity = keyboardInput();	
-					
+			String new_secondName = readboardInput();
+			System.out.println("\nAdja meg a keresztnevet: ");
+			String new_firstName = readboardInput();
+			System.out.println("\nAdja meg az aru nevet: ");
+			String new_goods = readboardInput();
+			System.out.println("\nAdja meg az aru mennyiseget: ");
+			int new_quantity = keyboardInput();
+
 			for(int i=0; i< lists.length; i++)
 			{
 				if(lists[i]==null)
@@ -102,7 +109,7 @@ class View
 		{
 			System.out.println("GIKSZER");
 		}
-		
+
 		System.out.println();
 	}
 
@@ -116,7 +123,7 @@ class View
 			{
 				if(lists[i] != null)
 				{
-					pr.println("\t" + (i+1) + " - " +lists[i].getFirstName() + " " + lists[i].getSecondName() + ", " + lists[i].getGoods() + ", " + lists[i].getQuantity());
+					pr.println(lists[i].getFirstName() + " " + lists[i].getSecondName() + "\t" + lists[i].getGoods() + "\t" + lists[i].getQuantity());
 				}
 			}
 			pr.close();
@@ -126,28 +133,28 @@ class View
 			e.printStackTrace();
 			System.out.println("GIKSZER");
 		}
-		
+
 		System.out.println();
 		for (int i=0; i<lists.length; i++)
 		{
 			if(lists[i] != null)
 			{
-				System.out.println("\t" + (i+1) + " - " +lists[i].getFirstName()+ " " + lists[i].getSecondName()+ ", " + lists[i].getGoods() + ", " + lists[i].getQuantity());
+				System.out.println(lists[i].getFirstName() + " " + lists[i].getSecondName() + "\t" + lists[i].getGoods() + "\t" + lists[i].getQuantity());
 			}
 		}
 		System.out.println();
-	}	
+	}
 
 /*-------------F O G L A L A S   M O D O S I T A S A-----------*/
 	private void Modositas()
 	{
 		System.out.println();
-		
+
 		int position;
 		Scanner input = new Scanner(System.in);
 		System.out.println("Kerem adja meg a modositando foglalas azonositojat!");
 		position = input.nextInt();
-		
+
 		if(position >= lists.length+1)
 		{
 			System.out.println("Modositas nem lehetseges");
@@ -159,21 +166,21 @@ class View
 				for(int i = position - 1; i < lists.length - 1; i++)
 				{
 					lists[i] = lists[i+1];
-					
+
 					System.out.println("Uj vezeteknev: ");
 					String new_secondName = readboardInput();
-					
+
 					System.out.println("Uj keresztnev: ");
-					String new_firstName = readboardInput();										
-						
+					String new_firstName = readboardInput();
+
 					System.out.println("Uj arunev: ");
 					String new_goodsName = readboardInput();
-					
+
 					System.out.println("Uj mennyiseg: ");
 					int new_Quantity = keyboardInput();
-		
+
 					lists[i] = new Raklap(new_secondName,new_firstName,new_goodsName,new_Quantity);
-					
+
 					break;
 				}
 			}
@@ -181,7 +188,7 @@ class View
 			{
 				System.out.println("GEBASZ");
 			}
-		}				
+		}
 		System.out.println();
 	}
 
@@ -189,12 +196,12 @@ class View
 	private void Torles()
 	{
 		System.out.println();
-				
+
 		int position;
 		Scanner input = new Scanner(System.in);
 		System.out.println("Kerem adja meg a torlendo foglalas azonositojat!");
 		position = input.nextInt();
-		
+
 		if(position >= lists.length+1)
 		{
 			System.out.println("Torles nem lehetseges");
@@ -205,11 +212,11 @@ class View
 			{
 				lists[i] = lists[i+1];
 			}
-		}		
+		}
 		System.out.println();
 	}
 
-/*------------I N C O R R E C T   C O M M A N D--------*/	
+/*------------I N C O R R E C T   C O M M A N D--------*/
 	private void Incorrect()
 	{
 		System.out.println();
@@ -230,16 +237,16 @@ class View
 //---------------I N P U T - I N T-------------------
 	int keyboardInput() throws IOException
 	{
-		BufferedReader input =new BufferedReader(new InputStreamReader(System.in));			
+		BufferedReader input =new BufferedReader(new InputStreamReader(System.in));
 		String text = input.readLine();
 		return Integer.valueOf(text);
-	}	
-	
+	}
+
 //---------------I N P U T - S T R I N G-------------------
 	String readboardInput() throws IOException
 	{
-		BufferedReader input =new BufferedReader(new InputStreamReader(System.in));			
+		BufferedReader input =new BufferedReader(new InputStreamReader(System.in));
 		String text = input.readLine();
 		return String.valueOf(text);
-	}	
+	}
 }

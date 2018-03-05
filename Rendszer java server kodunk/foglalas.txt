@@ -1,2 +1,2 @@
-	1 - S G, H, 10
-	2 - Heckl Pista, Homloker kenocs, 200
+S G	H	 10
+Heckl Pista	Homloker kenocs	200
