@@ -1,0 +1,1032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="177bc451-5b95-48bd-983f-4d53154630ed" name="UMLClassDiagram1" linkedPackageId="8cc65f34-899c-4cb7-9110-6046d76f60ff" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c180973a-01a8-49f3-ab53-d88430fdf18f" name="Diszpécser" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="107504c0-7616-4159-88c6-0da739c8dd31" />
+        <targetEnds>
+          <association Id="1e7bd644-45e4-43fc-a547-f7918bdc169f" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="&lt; tud" isAbstract="false">
+            <classMoniker Id="e890c4bd-5a03-472b-8980-86baa7afc566" LastKnownName="Bejelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d4d6e81e-8666-496d-aa64-64c3f5682b0c" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="07709e89-ae00-43bb-9c8f-2fc4f71ff0a7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5c4f7a36-72f6-412b-9c15-2a533c84dcaa" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="60ecb947-d53b-44b2-9801-f8a9b9472ae7" name="Lower" value="*">
+                      <elementDefinition Id="c10eca72-a5b9-4b5e-b88a-93ee7b1496e6" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="4bbc0d95-da38-48d4-821f-5e83bf4202bc" name="Upper" value="*">
+                      <elementDefinition Id="df3c4521-e311-4fd3-990b-2bfcb90d7ba7" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="406c0488-aa32-4397-b97d-50aa7e6d9e76" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f88a6dd5-365f-4a17-ad64-83a2010af34b" />
+          </association>
+          <association Id="0c3165d6-3578-453b-9733-36cdb7c3d72c" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="9d148241-6b01-48d5-ab61-a8a4a119d282" LastKnownName="Kijelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2e3cb8ed-b002-46b0-bac9-d7449357fdbf" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="54c72653-ae4f-4e4c-ad65-70234b9a1cb3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bd1a7585-1cef-42bb-bdc7-05f7588237c5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="33ac3ab8-e4ec-4581-b279-7db55a4a72bd" name="Lower" value="*">
+                      <elementDefinition Id="5cd4a299-f745-40f1-bcda-2600c3d7baf4" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="96033e1c-2310-435d-b10f-7bf758e855d1" name="Upper" value="*">
+                      <elementDefinition Id="df021b6e-2339-4695-8594-19fcfd8db611" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8f770f8c-f7c2-43b6-805e-096a30805921" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e44c7acd-14be-4ac1-81a3-816a5a5c77c8" />
+          </association>
+          <association Id="0157b9f8-3859-4474-ad2f-4e6987113a4f" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="faa215b8-5a8b-48a7-8da4-cd9f7a097937" LastKnownName="Szállítás törlése" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="97dbf5f1-71a2-4cb8-aec6-057dba679e17" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1e4c6205-ad53-437c-960d-1f9f1f77cb55" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="68760a48-20b2-4e3e-93dd-a379854ec0d5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="0aa9c1c4-232b-4498-ada7-7d4e8ce09afc" name="Lower" value="*">
+                      <elementDefinition Id="3bfa34e4-1a6b-4c01-b1d6-05bdbd7c5747" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="e3b94d79-edeb-4e4d-9991-28d738398ac3" name="Upper" value="*">
+                      <elementDefinition Id="d16614e6-fba2-43a9-9610-c304547277c9" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="0c3aaf60-edbf-4981-b9b9-c20d618a4c57" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2f2a01bb-4492-4c85-9ae3-db1e1bdc076c" />
+          </association>
+          <association Id="07ffab07-ebc3-4b94-ad72-273bbf6cefba" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="52368916-1c92-4958-82fc-a8e6109f6ed1" LastKnownName="Szállítás módosítása" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="db49cad6-d7bd-417b-948f-533884453b55" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0552f159-4843-4270-aed7-8f5e63a04222" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="11f844d1-dea2-489f-ae89-83a7929d1eac" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="cfdd0a9b-75ba-4478-82d1-bfd3045678a4" name="Lower" value="*">
+                      <elementDefinition Id="c5e68bb4-1fa8-4614-bda9-8678023949ef" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9085c4fe-7b33-432c-856d-5ceda51c4bef" name="Upper" value="*">
+                      <elementDefinition Id="68f09301-f971-4ffa-9de2-2f883a774cdc" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="71bea053-51c6-443e-b29f-bfb507575ca3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="02385a8a-8f09-4666-af29-f1ddfba85e06" />
+          </association>
+          <association Id="0d203e00-34fe-4ca3-a8a3-9abc8e83cc16" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="86d5b92a-9a72-467e-9f5e-bca78e8f191e" LastKnownName="Szállítás felvitele" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="96d2d4c2-cd3e-489e-9779-85b5e51544f5" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a60559e9-fbe4-4fcc-98e3-5b3813b5398b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cff1af9c-2379-4396-bf61-6c491423c2a2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="86b37139-f421-43f0-ab48-6041ed066ccd" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a224ca49-3a22-4d80-b514-c9ed05e87a36" />
+          </association>
+          <association Id="c7011dba-b761-4d30-a21c-d4a46b194fcc" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="e87e32b4-b8e9-458d-bb10-f1f51a18bd60" LastKnownName="Szállítás listázása" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="717bdb1d-eb3e-451f-8542-370e7a181f27" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b5a615ca-0fd3-4759-bdab-f84db45e2214" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="dc3d964d-8476-4d7b-8a4e-2c8b331a79e4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b90fe84d-b86b-48ee-8fbd-c5a7750828b2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="551d186d-2480-4d3c-9f76-9455c77487bc" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f2c510b9-6b7e-4b16-82e4-cb90b239f1a0" name="Raktáros" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4e5d9da2-2af9-4d05-abad-f0393e7e1c1b" />
+        <targetEnds>
+          <association Id="ea616eb9-51ae-4546-9116-872e73b82686" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="&lt; tud" isAbstract="false">
+            <classMoniker Id="e890c4bd-5a03-472b-8980-86baa7afc566" LastKnownName="Bejelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f9cad4dc-4c3d-4ec1-af5f-de75b3150e22" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="bdedc6ee-b9e2-4c9e-85d6-1f5ede03e3b7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="27ce8781-2a44-4186-abcc-1ff1c72f0628" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="17b9a8d8-8b40-4eed-825a-a4addac96a53" name="Lower" value="*">
+                      <elementDefinition Id="d6a8eb86-dd71-4ac0-a450-11982411097a" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="681fa182-ad68-4ea1-adf5-9dcd0dcfbea7" name="Upper" value="*">
+                      <elementDefinition Id="d637853f-68ef-46f3-bd4a-979466e27d5e" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="45ed0ff1-3195-497a-a6d1-1223c5963fbf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="83809ef7-b19a-4a2f-8d8b-5c99de57cfc1" />
+          </association>
+          <association Id="810c76db-dac1-4e90-ae17-cf95965a63e0" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="9d148241-6b01-48d5-ab61-a8a4a119d282" LastKnownName="Kijelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="99baf48d-de95-4c09-95ae-fa34f5231c94" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="260a3d40-6b90-4133-a92a-484e711cf653" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="132c6f72-fa97-4d05-92b5-b94326a4053e" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="eaf9b368-89d3-408b-a148-2d0c3f1fa4f9" name="Lower" value="*">
+                      <elementDefinition Id="60949ba1-37e5-41de-8771-682eeb07bd6f" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="413452b3-18ce-4ccb-a065-f88d97b90372" name="Upper" value="*">
+                      <elementDefinition Id="f7b55e0c-245b-4266-8c56-3cb4896ca72c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="265c25b7-7001-4eb7-872a-4b4849b2c0ac" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="06fb74d9-8f89-4737-9c22-ea0c401b97d7" />
+          </association>
+          <association Id="986005ef-05fc-4166-8ac3-5511aee36818" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="&lt; végrehajt" isAbstract="false">
+            <classMoniker Id="8906f881-3897-40a1-a329-10d0c1ef9baa" LastKnownName="Áru érkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bedd84a5-e51e-4f46-bc63-e3cd168419d9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="0083eb0f-c995-44ae-b590-51ea22abcc9f" name="Lower" value="1">
+                      <elementDefinition Id="f5ef6d19-9c4a-424f-a15b-45729da2b483" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="d0e92d11-04a9-405f-a6b7-8c0e4ed5f852" name="Upper" value="*">
+                      <elementDefinition Id="8e23d063-8d54-4901-966e-8fafd731feaa" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d9046ccf-3fc1-4607-9c30-76a2f72e8254" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="20b5580d-68e0-4ef1-8517-8bf15138d3ff" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="99dcc55f-e268-4e7b-91dc-e0c9fe41f136" name="Lower" value="1">
+                      <elementDefinition Id="8ac1dbff-1fbe-4805-874a-4ecdc354be0d" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8fb8b83d-d0ac-4529-a10a-137f469b67c0" name="Upper" value="*">
+                      <elementDefinition Id="bfbb481c-941b-46c4-a77e-37efea0c094a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="c13e2fc1-e663-4d8c-924e-5667286bdbb4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f9b84901-251a-408e-b4ee-a08e8f64ebf9" />
+          </association>
+          <association Id="187781c4-03a6-418e-a865-f72856bc8979" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="végrehajt &gt;" isAbstract="false">
+            <classMoniker Id="355a28eb-ccf5-44db-96b5-8122a464fc83" LastKnownName="Áru szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d148f1d6-c18b-494c-8439-6d0ec36f8a8b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="832e70b8-21d2-492a-96da-4d33a2b7c0b7" name="Lower" value="1">
+                      <elementDefinition Id="9668366e-f93f-426f-9757-ebc412f7b8c4" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="472f6a98-52cc-4609-8eb1-aba9808e0703" name="Upper" value="*">
+                      <elementDefinition Id="dbed1f45-d33e-45ad-bbd4-24aea41ad23a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="d06edf97-1990-452e-9310-ed1fce6f6155" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e50983ac-27d0-49b9-9fd0-443a8d34bdba" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="43ea97c1-88b4-40bf-bcbe-462d6c7cdf2a" name="Lower" value="1">
+                      <elementDefinition Id="f6868da6-effd-4944-b776-946016ae93bc" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="4945bba9-544b-49aa-8e3d-de79e20e4d8e" name="Upper" value="*">
+                      <elementDefinition Id="699c4d96-b44a-4ba0-b9ce-a9a1ae003146" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="f554b663-3c2c-4f44-9914-25d17b5d7ae8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9902b680-1e88-4233-bc54-56714011ff74" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bb9291bd-43b1-4b16-9d0c-7c0363b266d2" name="Könyvelő" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="cbc05b0c-16c5-4b4c-8cb3-b1f042cc968d" />
+        <targetEnds>
+          <association Id="947b6eeb-b5c3-440c-875f-3368f59be31a" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="e890c4bd-5a03-472b-8980-86baa7afc566" LastKnownName="Bejelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="22888b9d-48ce-4d65-908b-0c9900658999" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d807aa7a-7950-4fea-950b-5993b22bbd55" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="27834fc4-3a5b-4632-848a-e81ecb7982e4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="9e72ada1-76a1-47b5-a2b0-c589fb881b63" name="Lower" value="*">
+                      <elementDefinition Id="500e5417-3c96-4a5f-862c-45061ca80725" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="c7a40c7a-cd72-4f4f-8f26-324673a12cfb" name="Upper" value="*">
+                      <elementDefinition Id="8d06b9b7-ad72-4410-81a2-9330c8ac4303" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="cc0ae761-3f41-488b-a830-5a5f27284a48" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="431f4bae-a270-4829-ab12-8ba992e38088" />
+          </association>
+          <association Id="f7d8cb74-0304-4170-8ac0-479f1c6cb37c" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="9d148241-6b01-48d5-ab61-a8a4a119d282" LastKnownName="Kijelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="14aa6e9e-eae5-4512-9917-2f100bdb37ae" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1a4bae92-32d7-496d-a1ef-c119a71d6bd9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="112b0736-71a0-488b-afc2-f20fbe0bc05f" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="e53e4e48-1d18-4e55-833d-e329b322b0fd" name="Lower" value="*">
+                      <elementDefinition Id="2fed20fa-ef98-494c-9301-3b1ec165aa68" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="eb5e26a2-db6f-46dd-b789-9b74f64f0aea" name="Upper" value="*">
+                      <elementDefinition Id="259dbb57-20a9-4faf-854f-2f9f02f9bf7d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="5957abbc-fadb-4517-81d0-50d31fd21a48" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="191d3c39-201a-4522-b0e8-9b8c0c6816da" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e890c4bd-5a03-472b-8980-86baa7afc566" name="Bejelentkezés" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ee027d70-3e7d-4a59-b188-676f5f159a58" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="84ff6cc4-fbdb-4858-a4fb-43d86bcdfe40" name="Import adatok" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8ac1d6a1-5425-4a99-9201-29fa29bd1fc6" />
+        <ownedAttributesInternal>
+          <property Id="5bb0f2a5-61a6-4df8-ae80-c04af6a31d75" name="Raklapok száma" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1aaa3d09-a377-4fb7-812f-501c3da2921b" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fdcadfa2-b2fd-40a7-8d3e-90071884ed25" name="Export adatok" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c60e78d7-c3ce-44c5-9f99-dd1ee913bd41" />
+        <ownedAttributesInternal>
+          <property Id="e72319c0-a866-480c-a3e7-180b1f6416e5" name="Tárolási helyek" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="acb627af-28fa-41ed-acd3-5a0c954cc2b1" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="52368916-1c92-4958-82fc-a8e6109f6ed1" name="Szállítás módosítása" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fe971089-5be8-4ef8-a58a-45ba8c99e7db" />
+        <targetEnds>
+          <association Id="a53b199c-15de-4fc2-99a4-23cd2f457450" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="módosítás &gt;" isAbstract="false">
+            <classMoniker Id="f074b8c5-068d-4390-bfb0-319972a05a46" LastKnownName="Szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="82468032-26ac-4df9-a41a-a94fe6a727b3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="359c2dfc-9230-470c-92bf-3c83c694a1b1" name="Lower" value="*">
+                      <elementDefinition Id="f1795a6a-b486-4045-ba31-47c27c6496fc" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8a0366d0-785d-4006-b993-71fe189f894b" name="Upper" value="*">
+                      <elementDefinition Id="6a356768-5f94-4c53-b1e2-f1366d389501" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="2e831a07-3890-4abf-a2e9-6095ad0d2777" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="29e02cb2-437e-45e1-95fd-1977a12f150b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="9e3b7afe-3752-484a-9b1b-af21899db42d" name="Lower" value="*">
+                      <elementDefinition Id="eabbeced-33a6-4c21-a73c-2c88b1decdc7" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8c23ff13-0024-4744-8468-46c21e3ab94a" name="Upper" value="*">
+                      <elementDefinition Id="ade6f84c-e724-4aad-bef3-e22179f8e980" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="825f62de-780b-483b-9edd-e490618fffc3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c5de27aa-46ed-40c0-bd79-b8f9066be909" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="faa215b8-5a8b-48a7-8da4-cd9f7a097937" name="Szállítás törlése" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7f1cd1a6-d25f-4425-88e7-dea194d1a575" />
+        <targetEnds>
+          <association Id="67a6baa9-3de1-44fe-ace9-94636ee3fd79" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="törlés &gt;" isAbstract="false">
+            <classMoniker Id="f074b8c5-068d-4390-bfb0-319972a05a46" LastKnownName="Szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="73ff080c-db06-4710-85d8-7c8dafabf747" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b265bb26-a684-468f-90b2-048501b6cb1b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6ba22dc3-9b16-4292-8714-c5545067f961" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="6ce1c5e7-bfcc-421b-a880-7a8a68e4b094" name="Lower" value="1">
+                      <elementDefinition Id="5eaddbdb-aa46-4447-a863-300d45019f30" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="f8f135b4-7f52-4e0c-9d37-ad20d38134a3" name="Upper" value="*">
+                      <elementDefinition Id="3d0868b4-352a-4da3-8ae1-e07d67d0b8c1" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="c99b8832-ae8d-4e56-8ecf-a89315557e6c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="27715950-56ed-41fe-8966-52a3159e9dfa" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="35a943c3-04ef-48e8-9062-fd22a50cc2e1" name="Napi forgalom listázása" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c9b46d3b-7769-4fc2-8df7-e354b033f120" />
+        <targetEnds>
+          <association Id="60c70ff1-8336-459d-8926-ee74a72761ac" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tud &gt;" isAbstract="false">
+            <classMoniker Id="bb9291bd-43b1-4b16-9d0c-7c0363b266d2" LastKnownName="Könyvelő" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="85066e01-8259-484c-b200-8719594d23eb" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="efa694b0-6eda-4c69-90b7-fbf7e85a23c2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e25e5358-9b02-43de-9ea0-31f5e36b50e3" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="dcd1e734-1c7e-4f80-9f7c-97d251b30188" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="30fc7d26-584f-44af-825f-21f2cc3edbc0" />
+          </association>
+          <association Id="918e120d-e0b8-438d-aa09-c3c65a149774" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="listáz &gt;" isAbstract="false">
+            <classMoniker Id="355a28eb-ccf5-44db-96b5-8122a464fc83" LastKnownName="Áru szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="bfb0126f-790b-4e13-8669-fc051d109cc9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="936ee69b-5531-467e-b83e-fc94f87b5404" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="18306c1c-9df0-40c4-858d-fe34f72c5a75" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="91e3a1bd-0a22-48d3-84ae-6b154fd3cfa5" name="Lower" value="*">
+                      <elementDefinition Id="819a4311-533e-4ee6-972c-ec1cea03d741" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="009940dd-24c3-418f-bda0-f8e7818a6b73" name="Upper" value="*">
+                      <elementDefinition Id="79716639-7a0f-47d3-a80a-c44e72803d23" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="2aea32b4-4ba2-436f-aa7d-745de55f1c54" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b73d099b-2d78-4347-9ac1-de7072a02cd7" />
+          </association>
+          <association Id="dadcb847-a25c-4c6e-8bcc-2c97e62c163d" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="listáz &gt;" isAbstract="false">
+            <classMoniker Id="8906f881-3897-40a1-a329-10d0c1ef9baa" LastKnownName="Áru érkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="40948652-f0ba-4e99-ae9a-2923c721a5bb" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2e994736-ac46-4c97-9ddf-72ec829c5a5c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="86e914e4-cd6d-4ac7-9c7d-880fdd24a142" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="478e12c2-7a5b-4f1a-a4e1-c9cb6938e83c" name="Lower" value="*">
+                      <elementDefinition Id="d5b1bffb-ba66-4325-bd47-e5b44e8b996b" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="84764509-5128-4c43-9f56-a0719f12be6b" name="Upper" value="*">
+                      <elementDefinition Id="73f285b0-0d75-4796-a3cd-47a8d757a060" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="745f1648-a8c7-4ee9-974d-38fdc1610e50" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="58377815-9e35-4f13-8da3-9c6f42867a2a" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8906f881-3897-40a1-a329-10d0c1ef9baa" name="Áru érkezés" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d4b6f67c-4803-465b-98b4-f9ae4a2adc71" />
+        <targetEnds>
+          <association Id="e36e749d-abcd-49fc-b0a0-e488389d9e10" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tartalmaz &gt;" isAbstract="false">
+            <classMoniker Id="84ff6cc4-fbdb-4858-a4fb-43d86bcdfe40" LastKnownName="Import adatok" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="03eba087-f973-4abc-8b48-7de7354e706a" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="1f8186e1-58a5-4632-9dee-84bb0d9a0a96" name="Lower" value="*">
+                      <elementDefinition Id="af3f3b3a-72d7-40b5-b4c4-8621c109c8d7" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="4f08b4a0-5605-4a13-ad2d-6f1d2409c2b1" name="Upper" value="*">
+                      <elementDefinition Id="2d1c028b-3cbd-4c15-87a6-f9b371deaa52" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="937181a6-82a7-4bee-a6ed-c4120dffa21e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0b4a74d7-2af5-4a0c-b1c4-b32c641c4982" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6c56867d-44db-466d-854d-916929a18484" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="e641fca6-f84d-4a0b-86c8-6b2f902859f8" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="8a4c5393-243f-4181-b47b-b0c51b6d7642" name="Belső azonosító" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="5dc06007-4a6e-4a23-9634-a3d10f9412de" />
+          </property>
+          <property Id="15ace03e-1ee0-4c44-97c6-08860a041f9b" name="Tárolási hely" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="35f91135-6f5f-46c8-9016-6f0011c7fd32" />
+          </property>
+          <property Id="8af8ed63-06c6-4edb-85e8-21e83a4642fc" name="Hiba" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3fc73e6c-099d-4fa5-8d5b-fd016d4a9eea" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="355a28eb-ccf5-44db-96b5-8122a464fc83" name="Áru szállítás" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c8e53d1f-f864-44a7-9f86-d22429ce39ae" />
+        <targetEnds>
+          <association Id="408cb31e-bed1-4ad7-9630-c69e79a797bf" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="tartalmaz &gt;" isAbstract="false">
+            <classMoniker Id="fdcadfa2-b2fd-40a7-8d3e-90071884ed25" LastKnownName="Export adatok" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3c5d1ca6-1c66-434c-be00-4ae55c53d1d2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="2d774f1d-2023-4313-a19a-163d0c94e5b4" name="Lower" value="*">
+                      <elementDefinition Id="5a90f4c9-e10c-46d2-a072-58545a9a45fc" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="9cff3c8f-a899-47ad-93d1-307de012932e" name="Upper" value="*">
+                      <elementDefinition Id="057afd19-28c7-4bf4-845e-5cbdf4e2698d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="3b176362-2700-48ac-b07f-fa573cf5f815" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="675bc5ae-faef-4a32-993c-9d69063e6add" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2e824221-a3d7-416a-aa96-d2e6314349a8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f51238b1-fd9f-4508-b8f4-3124e0e81d45" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="74dfc0b2-a768-42b1-b7c6-b4e2c811bdaf" name="Belső azonosító" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="179031e0-5750-4b28-afc8-cf1c613d8446" />
+          </property>
+          <property Id="d666a011-c193-45ed-9a38-9b032d2dcc6b" name="Tárolási hely" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ddd1f4a3-9f8c-4ee1-b42d-f59459372cd8" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9d148241-6b01-48d5-ab61-a8a4a119d282" name="Kijelentkezés" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="653361ab-2fc3-4181-85fb-523f8776f7a8" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ec3481b1-e821-44bc-b626-15d28784a77b" name="Raktár" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="410bd3e7-e98c-41f0-80f1-6510f19b4058" />
+        <targetEnds>
+          <association Id="0877b76e-f6d7-4621-878f-7f157b4c16b2" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="van neki &gt;" isAbstract="false">
+            <classMoniker Id="1f7150f0-2f71-4472-8393-f548cf2b73d6" LastKnownName="Dolgozó" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7b314b00-ceab-4b67-a438-b4baab6aa7f1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fcd725c2-f682-4ee8-8892-7e14ace90c37" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="573269ac-4372-483c-b34a-cb40ceb73e29" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString Id="97c36071-3f1a-4653-b2be-f5f2830f4e24" name="Lower" value="1">
+                      <elementDefinition Id="deafa822-9738-4b88-a98d-e9bd02ea5a0e" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="6994a555-8ab2-4917-a0b3-3f9466a7b8e4" name="Upper" value="*">
+                      <elementDefinition Id="6b4ec654-dfec-4dca-bcee-86b914e99786" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="ae33e419-796f-4d0f-a304-f4238321b00c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2fa5b961-684e-4995-bda9-72a1c26246a9" />
+          </association>
+          <association Id="3caa1cd9-2c02-4747-a9a0-7b9e1507075a" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="van neki &gt;" isAbstract="false">
+            <classMoniker Id="f2cf4b72-4671-4d77-96dc-c6cdbc01bc28" LastKnownName="Polc" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6174174e-743d-47a7-87f9-81094f22fd1b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e9f78bde-c4aa-438d-b8e6-8fbc592a8121" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f272ec46-7dc0-4989-b5f6-a39db7e94df1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="d626ec05-8935-4cb9-8831-d7ed9d88c8e6" name="Lower" value="1">
+                      <elementDefinition Id="d84d9b5c-7641-41f9-b9e4-fde0d7b2afa5" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="cf64611b-a611-48c2-ad7b-5fe470c03336" name="Upper" value="*">
+                      <elementDefinition Id="884a2c40-ccfe-4fd5-8ff4-0cab9b2c899a" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="546af367-e770-4071-9cc1-857c85276e1b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8f83c13c-6edd-4eb7-955b-4945829fe6b8" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="d0d6a4e6-978a-4ca5-ab12-db9487b2a630" name="cím" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ff7fa649-e7b5-498f-8d2a-e2cd2e3486de" />
+          </property>
+          <property Id="241df81c-ebf6-41df-b774-c89064a3ac93" name="név" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b497b061-51b0-4ea9-abbb-6f01054b4fdb" />
+          </property>
+          <property Id="08f750b0-b7e8-4c5d-9830-f4d4aa43a81c" name="telefonszám" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c3d046f9-2044-49f6-a1b1-e46104a5763d" />
+          </property>
+          <property Id="d0136832-8be1-47aa-a874-0037b7bc7fa5" name="e-mail cím" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e56befa1-4f5c-47da-8f95-ae93f1913209" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f2cf4b72-4671-4d77-96dc-c6cdbc01bc28" name="Polc" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f2761afc-97ca-44bc-bc07-1c046add6575" />
+        <targetEnds>
+          <association Id="d37b0938-abe6-4ee1-b6b9-e1c8a259c93d" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="lekérdez &gt;" isAbstract="false">
+            <classMoniker Id="acc27db7-882b-4048-80e6-4bf262a65d2a" LastKnownName="Szabad polcok lekérdezése" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="980b814c-d244-451b-898c-bca75f7a4dc0" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="92414302-4bf4-492c-8e42-af48a1c394cc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f46109fe-8d6f-48f0-93f0-f3adbc0ec9b9" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7aae7be1-9873-4b10-92ef-a83409823fd9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2be708f3-8b34-45a8-82d6-ead53faa8053" />
+          </association>
+          <association Id="f8d3208d-7ff2-498f-a8b1-3d682c710060" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="&lt; hozzáfér" isAbstract="false">
+            <classMoniker Id="f074b8c5-068d-4390-bfb0-319972a05a46" LastKnownName="Szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="962345b2-def5-40bb-800c-82a21a7fc115" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="c1dc30ee-308c-4932-81e6-d58d437c51e4" name="Lower" value="*">
+                      <elementDefinition Id="8b0fa47e-7d4a-4f1d-9f77-23e5d517b804" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="d13d7914-9468-4fb8-9ad9-a1e6870b2c9f" name="Upper" value="*">
+                      <elementDefinition Id="f4c2fa58-8390-47e9-a4f3-2ee53a30acb3" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="0f5dbf9a-e63c-4df9-b4a8-1fae09942f83" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5194c82-a235-4f80-8334-8519e5f643e1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b25459ef-cda6-4ce8-95e9-a515aabdf6e9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="27f76699-b371-4497-a3a8-db092ebe3721" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="24769993-8d51-4954-827e-b57241da13b5" name="Kódszám" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="27835b2f-7a6b-4e7c-9746-65319ae2109d" />
+          </property>
+          <property Id="094d675b-fb4b-490f-a693-68ef51f057ab" name="Oszlopszám" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="44516933-a033-4296-af1b-b5caa00ba469" />
+          </property>
+          <property Id="d87a65c4-bd56-4877-b764-299562ff9cd4" name="Sorszám" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="13ecc018-620e-4a37-89e4-e7dbafcacd91" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1f7150f0-2f71-4472-8393-f548cf2b73d6" name="Dolgozó" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ac0f7bef-f4c7-498c-bfd4-7b1d0a9dbe7e" />
+        <targetEnds>
+          <association Id="db1cea15-f420-4402-8a01-7c2600e54a81" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="lehet &gt;" isAbstract="false">
+            <classMoniker Id="c180973a-01a8-49f3-ab53-d88430fdf18f" LastKnownName="Diszpécser" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3e736e5b-fce0-404e-acae-c74789357e1b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3210bbfd-7773-41c7-9ffe-5460402a0ca4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d9ab0a2c-2382-4f03-bced-db8951de2c1f" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="74f290fc-54a6-4dfd-b88e-0dcaced8997f" name="Lower" value="1">
+                      <elementDefinition Id="3473adbd-966f-49d3-9184-23f1b61bd0b0" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="4aa4deac-7fbc-49da-b6c5-5dcbb5eb6390" name="Upper" value="*">
+                      <elementDefinition Id="ed9bc63f-a668-4763-a0f2-818d07bc4250" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="3b2e961c-cf8b-4ec6-a1d4-5ffd8c58a5b9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="397efd20-eb0c-4230-9a0f-938540e3c7a8" />
+          </association>
+          <association Id="0d40a9e5-b8c6-40c0-9e7d-1600e946895b" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="lehet &gt;" isAbstract="false">
+            <classMoniker Id="f2c510b9-6b7e-4b16-82e4-cb90b239f1a0" LastKnownName="Raktáros" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="802a6e95-e07f-4107-a160-96c0cc66b01e" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a2cbb38e-0b6c-4228-8529-f631fcd740af" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4f8cdce4-cf28-4f8e-95fb-11d545544a02" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="2528e94f-1b26-4da0-829e-5c5ca255bd17" name="Lower" value="1">
+                      <elementDefinition Id="99c45119-4c23-499f-9e87-45bd4d6cd1db" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="db6ac8d1-1087-449b-9ec0-44c9ea60df3a" name="Upper" value="*">
+                      <elementDefinition Id="7858e301-f90a-4321-9fae-9ce11208dc29" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="a87f195f-6ebc-44ba-a83f-15fb8dff3fa2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b75304fb-7b84-4f95-8bbf-c276c9eb1499" />
+          </association>
+          <association Id="c5144018-5422-44fb-9aa3-59a674573ee4" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name=" &lt; lehet" isAbstract="false">
+            <classMoniker Id="bb9291bd-43b1-4b16-9d0c-7c0363b266d2" LastKnownName="Könyvelő" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f43d6ea0-edc2-422e-b927-73708b21f186" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="212864e0-e731-4122-acbc-827dba4ed55b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4784f388-84ef-46bb-85f7-e166fc920821" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="e833b2df-ab65-4245-b404-59cfcf1e5de0" name="Lower" value="1">
+                      <elementDefinition Id="10360316-9d0b-48d3-b212-a23a71fd906f" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="23ffd144-00e1-4b0a-afdb-98a2e7faef32" name="Upper" value="*">
+                      <elementDefinition Id="ac330d07-6e99-46eb-bac3-517ee33e9ba0" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="525504ad-9fdf-49a1-9d31-1b3b8ca95f8c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="194d0ae9-205e-4193-8c17-308d4bf32038" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="fb8b05e1-d9fe-4414-ba54-08c86c7c78eb" name="felhasználónév" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="52194da0-efa0-473b-bd9a-4316ff5b4c2c" />
+          </property>
+          <property Id="c381da0e-3cd4-4127-a2f5-f1e5b93da218" name="jelszó" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="57c157fe-5bf1-4532-b8a8-4853c1805180" />
+          </property>
+          <property Id="0e97b36e-3766-46e5-adeb-03cb419706d5" name="név" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ac5f7187-5e8a-4cdb-ac10-2220f5bce8fd" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f074b8c5-068d-4390-bfb0-319972a05a46" name="Szállítás" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="092ad351-b5da-46ee-b7c6-88226a8eb9dc" />
+        <targetEnds>
+          <association Id="e1a7c460-4d03-4ffa-a3d3-816b33f8e4f3" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="&lt; tartalmaz" isAbstract="false">
+            <classMoniker Id="fdcadfa2-b2fd-40a7-8d3e-90071884ed25" LastKnownName="Export adatok" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3f84dfe3-43e8-4735-b599-2150a49f99f1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="1875d9cf-e06f-4b6a-aa50-5639e0469af8" name="Lower" value="1">
+                      <elementDefinition Id="893958eb-f967-4ac6-bfec-a5403da6dd47" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="07c61324-d9ed-40c5-bcce-5d2a77287582" name="Upper" value="1">
+                      <elementDefinition Id="80101c31-ba08-4843-8cc8-5a1075fd5b57" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="39c02713-b356-4f71-a741-aebb2133c485" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4b33df04-50bb-4b4e-b4a1-984759c6dac8" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a5294aef-850e-4e3e-96e2-d426d3b7e0ad" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6778f2d4-59bd-4712-87e7-5c71dd9e5cf6" />
+          </association>
+          <association Id="3c5b8d5c-ab0f-42c0-a98a-0f423a416452" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="&lt; tartalmaz" isAbstract="false">
+            <classMoniker Id="84ff6cc4-fbdb-4858-a4fb-43d86bcdfe40" LastKnownName="Import adatok" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e5bb926f-0453-4a28-a1cd-d2e1dfbce518" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="e2fa0d66-8c5d-438c-b780-f5d9af554abc" name="Lower" value="1">
+                      <elementDefinition Id="7e198304-a4c9-404a-8f97-1383b81c32ea" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="527b9744-7efc-408f-bc14-ab2f561215c7" name="Upper" value="1">
+                      <elementDefinition Id="20d8774b-776a-4043-be24-c0164dad3b83" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="e2d3e4f2-f349-4a46-9cb9-7560a46ac6a8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6f876235-004d-4b15-9c9d-0ef60e01c07c" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ec980cdc-150d-4b96-93ae-85ac64248623" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="46a4bcc1-f662-4d79-aae0-32d1ed3c1836" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="be405a51-aace-424d-a177-cd4a89f73d49" name="Beszállító" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="463b6b07-20d8-40c6-b82a-f80e84d064d1" />
+          </property>
+          <property Id="4d7453c3-2840-4fbc-8453-7b0242410512" name="Nap" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4e01020f-7c97-406c-86c6-e232035e72e9" />
+          </property>
+          <property Id="25dfb224-dca5-443e-8fdd-61c40ea0c5ef" name="Időtartam" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="ed75c638-bdfe-4a39-81e7-d411e5f65c68" />
+          </property>
+          <property Id="c4e63d75-49b7-482f-a424-b6394c0dbe40" name="Terminálszám" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="9506f848-c8cb-413c-8c05-c29c983a05ce" />
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="86d5b92a-9a72-467e-9f5e-bca78e8f191e" name="Szállítás felvitele" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="11cb2138-63ef-44c9-8149-b14e9cb428c2" />
+        <targetEnds>
+          <association Id="9622428b-05eb-4059-a917-365af097df5b" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="létrehoz &gt;" isAbstract="false">
+            <classMoniker Id="f074b8c5-068d-4390-bfb0-319972a05a46" LastKnownName="Szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d4282b81-af84-4eab-90ee-cb6db9f428cf" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b7d6abf9-5037-42e6-87b8-3bc3b112afc5" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5996fbfe-a824-40c5-9889-0e86dc83fbf4" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="de34bbd8-0718-4a51-b38b-df5edd413122" name="Lower" value="1">
+                      <elementDefinition Id="06816c29-d73e-4124-a653-14bf0ed351d5" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="b6bec10d-567b-43b7-9b30-29336d980c80" name="Upper" value="*">
+                      <elementDefinition Id="927aaaa6-4663-4a0b-90ae-9e7e25980077" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="8049c1f0-6999-4a6e-9d6f-240b50901650" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6ae12235-d42c-4e2f-9aa8-6253551c5570" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="acc27db7-882b-4048-80e6-4bf262a65d2a" name="Szabad polcok lekérdezése" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="10bbf77e-be9a-4397-82dc-ba862eb8177e" />
+        <targetEnds>
+          <association Id="74da78ef-0393-4019-b91c-a95f07ee481d" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="végrehajt &gt;" isAbstract="false">
+            <classMoniker Id="c180973a-01a8-49f3-ab53-d88430fdf18f" LastKnownName="Diszpécser" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1a6f8a19-54b6-49b3-a57c-4c7edf47011f" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="c6950890-ff93-4d57-82c7-080085916d58" name="Lower" value="*">
+                      <elementDefinition Id="862c1302-daee-4bb3-8c53-fcaf9e08981d" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="1c8fe511-ed26-4302-ac6f-456e1059e29d" name="Upper" value="*">
+                      <elementDefinition Id="d35018b1-340d-49b1-9a4d-4cf55816eed8" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="521abad6-6164-4812-a38e-0b13e2aa7eea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e2301046-7316-4e00-a16a-1e3cb527d070" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="9892ce37-8a14-4e8a-a978-dc5a70754ecb" name="Lower" value="*">
+                      <elementDefinition Id="7e0e3908-9db2-4495-b15e-4b5d1c97a894" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="c9177a14-ff4d-454f-a1fc-f2cfc6444ce5" name="Upper" value="*">
+                      <elementDefinition Id="ace5e7cd-69df-4ac5-8f55-eb319dcab38d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="b57bedf1-4667-4265-8d62-8d1be370427f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="7511669c-e8a9-4cd0-a2c2-943d31db4348" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e87e32b4-b8e9-458d-bb10-f1f51a18bd60" name="Szállítás listázása" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7895eee6-bd1a-498a-b34c-624e122e2414" />
+        <targetEnds>
+          <association Id="8c3d4277-e3d5-47d3-bd7c-7951812c3258" isDerived="false" sourceEndRoleName="" targetEndRoleName="" isLeaf="false" name="listáz &gt;" isAbstract="false">
+            <classMoniker Id="f074b8c5-068d-4390-bfb0-319972a05a46" LastKnownName="Szállítás" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9b032248-958c-4614-88d3-32e041dc144b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="cef92c1f-1b7d-4fd2-ba41-85771b0cf49a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="581b235f-9667-4375-be68-f144efd63d7b" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="0d46612b-ff4b-4fd0-a237-bc9075b8e979" name="Lower" value="*">
+                      <elementDefinition Id="4a83073d-51bd-4336-a856-de1d862c1b1c" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="32375746-3af2-400c-8fab-774686371efe" name="Upper" value="*">
+                      <elementDefinition Id="23346eda-fa49-4e3f-bc75-919ccb2f1bd8" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1c5db0ac-9203-4a53-b5ee-acdb1895d02f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="9dd645e0-347c-401b-8728-aa9db03f020b" />
+          </association>
+        </targetEnds>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="8cc65f34-899c-4cb7-9110-6046d76f60ff" name="rendszer">
+    <elementDefinition Id="6f17f7fb-8ecf-4d76-812e-22576f6860d3" />
+    <profileInstances>
+      <packageHasProfileInstances Id="a4e2cdf1-c8df-4199-b32e-89041a753a0d">
+        <profileInstance Id="697a9b62-9c18-4583-9aec-7060bf7f13a5" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ffcf6da2-6cc5-40d8-8ca9-577c55f66394">
+        <profileInstance Id="6a81a481-4e49-4a72-b55a-29ee20c8c619" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>
