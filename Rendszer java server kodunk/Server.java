@@ -23,9 +23,9 @@ class Server
 				System.out.println("client connected");
 				BufferedReader input =new BufferedReader(new InputStreamReader(client.getInputStream()));
 				String cmd = input.readLine();
-				System.out.println("command: " + cmd);				
+				System.out.println("command: " + cmd);
 				// send back to client
-				PrintWriter out =new PrintWriter(client.getOutputStream(), true);				
+				PrintWriter out =new PrintWriter(client.getOutputStream(), true);
 			}
 		}
 		catch(IOException e)
@@ -33,7 +33,7 @@ class Server
 			e.printStackTrace();
 		}
 		finally
-		{
+		{		
 			try
 			{
 				client.close();

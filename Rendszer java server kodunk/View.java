@@ -1,33 +1,30 @@
 import java.io.*;
 import java.net.*;
-import java.util.Scanner;
+import java.util.*;
 
 class View
 {
 	private Controller contr;
 	Raklap[] lists = new Raklap[10];
-	public View()
-	{
-		//lists[0] = new Raklap("Simon","Gyuszi","Hulyeseg megelozo tabletta",100);
-		//lists[1]  = new Raklap("Heckl","Pista","Homloker kenocs",200);
-		BufferedReader in = new BufferedReader(new FileReader("foglalas.txt"));
-		String line;
-		while((line = in.readLine()) != null)
-		{
 
-		}
-		in.close();
-	}
+	public View()
+	{		/*
+		lists[0] = new Raklap("Simon Gyuszi","Hulyeseg megelozo tabletta",100);
+		lists[1]  = new Raklap("Heckl Pista","Homloker kenocs",200);
+	*/}
 
 	public View(Controller contr)
 	{
 		this.contr = contr;
 	}
 
+
+	
 /*------------M E N U-------------*/
 	public void showMenu()
 	{
 		System.out.println("Raktar Rendszer");
+		System.out.println("0 - Adatok beolvasas");
 		System.out.println("1 - Foglalas Felvitele");
 		System.out.println("2 - Listazas");
 		System.out.println("3 - Modositas");
@@ -41,7 +38,15 @@ class View
 		try
 		{
 			Socket socket = new Socket("localhost", 10000);
-			executeUserCommand(socket);
+			int cmd = getUserInput();
+			if (cmd == 9)
+			{
+				return true;
+			}
+			else
+			{
+					executeUserCommand(socket,cmd);
+			}
 		}
 		catch(IOException e)
 		{
@@ -51,18 +56,17 @@ class View
 	}
 
 /*------------U S E R   C O M M A N D---------*/
-	public boolean executeUserCommand(Socket socket)
+	public boolean executeUserCommand(Socket socket, int cmd)
 	{
 		try
 		{
-			int cmd = getUserInput();
 			switch (cmd)
 			{
+				case 0: beolvas(); break;
 				case 1: FoglalasFelvitele(); break;
 				case 2: Listazas(); break;
 				case 3: Modositas(); break;
 				case 4: Torles(); break;
-				case 9: return true; // exit
 				default: Incorrect(); break;
 				//contr.execute(cmd);
 			}
@@ -78,6 +82,40 @@ class View
 		return false;
 	}
 
+/*--------B E O L V A S----------*/
+	public void beolvas()
+	{
+		try
+		{
+			BufferedReader file = new BufferedReader(new FileReader("foglalas.txt"));
+			int i=0;
+			while(true)
+			{
+				String line = file.readLine();
+				if(line==null)
+					break;
+				/*if(line.startsWith("#"))
+					continue;
+				
+				System.out.println(line);
+				String [] data = line.split("\t");
+				System.out.println(data[0]+ "\t" + data[1]+ "\t" + data[2]);
+				*/
+				//ertekadas
+				lists[i] = new Raklap(data[0],data[1],Integer.parseInt(data[2]));
+				i++;
+			}
+		}
+        catch(FileNotFoundException e)
+		{
+			e.printStackTrace();
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}	
+	}
+	
 /*-------------F O G L A L A S   F E L V I T E L E-----------*/
 	private void FoglalasFelvitele()
 	{
@@ -86,10 +124,8 @@ class View
 
 		try
 		{
-			System.out.println("\nAdja meg a vezeteknevet: ");
-			String new_secondName = readboardInput();
-			System.out.println("\nAdja meg a keresztnevet: ");
-			String new_firstName = readboardInput();
+			System.out.println("\nAdja meg a nevet: ");
+			String new_Name = readboardInput();
 			System.out.println("\nAdja meg az aru nevet: ");
 			String new_goods = readboardInput();
 			System.out.println("\nAdja meg az aru mennyiseget: ");
@@ -99,7 +135,7 @@ class View
 			{
 				if(lists[i]==null)
 				{
-					lists[i] = new Raklap(new_firstName, new_secondName, new_goods, new_quantity);
+					lists[i] = new Raklap(new_Name, new_goods, new_quantity);
 					break;
 				}
 			}
@@ -116,6 +152,7 @@ class View
 /*-------------F O G L A L A S   L I S T A Z A S A-----------*/
 	private void Listazas()
 	{
+		System.out.println();
 		try
 		{
 			PrintWriter pr = new PrintWriter("foglalas.txt");
@@ -123,7 +160,7 @@ class View
 			{
 				if(lists[i] != null)
 				{
-					pr.println(lists[i].getFirstName() + " " + lists[i].getSecondName() + "\t" + lists[i].getGoods() + "\t" + lists[i].getQuantity());
+					pr.println(lists[i].getName() + "\t" + lists[i].getGoods() + "\t" + lists[i].getQuantity());
 				}
 			}
 			pr.close();
@@ -139,7 +176,7 @@ class View
 		{
 			if(lists[i] != null)
 			{
-				System.out.println(lists[i].getFirstName() + " " + lists[i].getSecondName() + "\t" + lists[i].getGoods() + "\t" + lists[i].getQuantity());
+				System.out.println(lists[i].getName() + "\t" + lists[i].getGoods() + "\t" + lists[i].getQuantity());
 			}
 		}
 		System.out.println();
@@ -167,11 +204,8 @@ class View
 				{
 					lists[i] = lists[i+1];
 
-					System.out.println("Uj vezeteknev: ");
-					String new_secondName = readboardInput();
-
-					System.out.println("Uj keresztnev: ");
-					String new_firstName = readboardInput();
+					System.out.println("Uj nev: ");
+					String new_Name = readboardInput();
 
 					System.out.println("Uj arunev: ");
 					String new_goodsName = readboardInput();
@@ -179,7 +213,7 @@ class View
 					System.out.println("Uj mennyiseg: ");
 					int new_Quantity = keyboardInput();
 
-					lists[i] = new Raklap(new_secondName,new_firstName,new_goodsName,new_Quantity);
+					lists[i] = new Raklap(new_Name,new_goodsName,new_Quantity);
 
 					break;
 				}
