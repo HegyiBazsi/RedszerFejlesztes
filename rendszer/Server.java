@@ -1,11 +1,35 @@
 import java.io.*;
 import java.net.*;
+import java.util.*;
 
 class Server
 {
+  private ServerThread newServer;
+	private static List<ServerThread> clients;
 	public static void main(String[] args)
 	{
-		new Server().start();
+		Server sr = new Server();
+		clients = new ArrayList();
+		sr.serve();
+	}
+
+	void serve()
+	{
+		System.out.println("Server is running...");
+		try
+		{
+			ServerSocket server = new ServerSocket(10000);
+			while(true){
+				Socket temp = server.accept();
+				newServer = new ServerThread(temp);
+				clients.add(newServer);
+				newServer.start();
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	private void start()
@@ -28,12 +52,12 @@ class Server
 				PrintWriter out =new PrintWriter(client.getOutputStream(), true);
 			}
 		}
-		catch(IOException e)
+    catch(IOException e)
 		{
 			e.printStackTrace();
 		}
 		finally
-		{		
+		{
 			try
 			{
 				client.close();
@@ -43,4 +67,9 @@ class Server
 			}
 		}
 	}
+
+  public static void remove(ServerThread toRemove)
+  {
+    clients.remove(toRemove);
+  }
 }
