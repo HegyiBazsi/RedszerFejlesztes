@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 import java.util.*;
+import java.lang.*;
 
 class View
 {
@@ -19,6 +20,7 @@ class View
 /*----------- V I E W ----------*/
 	public View()
 	{
+
 		o = new ArrayList<Raklap>();
 	}
 
@@ -31,6 +33,7 @@ class View
 /*---------- S H O W   M E N U ----------*/
 	public void showMenu()
 	{
+		System.out.println();
 		System.out.println("Raktar Rendszer");
 		System.out.println("1 - Adatok beolvasas");
 		System.out.println("2 - Foglalas Felvitele");
@@ -47,6 +50,7 @@ class View
 		{
 			Socket socket = new Socket("localhost", 10000);
 			int cmd = getUserInput();
+			System.out.println();
 			if (cmd == 9)
 			{
 				return true;
@@ -106,21 +110,31 @@ class View
 		return line;
 	}
 
+/*----------Main Finctions-----*/
 /*---------- R E A D ----------*/
 	private void read() throws IOException
 	{
 		BufferedReader be = new BufferedReader(new FileReader("ki.txt"));
 		String in = new String("");
+
 		while(!((in=be.readLine())==null))
 		{
-			String[] adat = in.split("\\|");
-			try
+			String[] line= in.split("\\,");
+			for(int i=0;i<line.length;i++)
 			{
-				o.add(new Raklap(Integer.parseInt(adat[0]), adat[1], adat[2], Integer.parseInt(adat[3])));
-			}
-			catch(NumberFormatException ex)
-			{
-				System.out.println("Wrong!");
+				String[] adat = line[i].split("\\|");
+				adat[0]=adat[0].substring(1,adat[0].length());
+				adat[3]=adat[3].substring(0,adat[3].length()-1);
+				//System.out.println(adat[0].toString());
+				//System.out.println(adat[3].toString());
+				try
+				{
+					o.add(new Raklap(Integer.parseInt(adat[0]), adat[1], adat[2], Integer.parseInt(adat[3])));
+				}
+				catch(NumberFormatException ex)
+				{
+					System.out.println("Wrong!");
+				}
 			}
 		}
 	}
@@ -139,11 +153,13 @@ class View
 				System.out.println(a);
 			}
 		}
+		listflush();
 	}
 
 /*----------F E L V E T E L----------*/
 	private void rendelesFelvetel() throws IOException
 	{
+		read();
 		System.out.println("Belso Azon: ");
 		int id = getUserInput();
 
@@ -156,10 +172,32 @@ class View
 		System.out.println("Mennyiseg: ");
 		int quantity = getUserInput();
 
-		c = new Raklap(id, name, goods, quantity);
-		o.add(c);
+		Iterator<Raklap> i = o.iterator();
+		while(i.hasNext())
+		{
+			int ID=i.next().getInternalID();
+			if(ID==id)
+			{
+				System.out.println("Van mar ilyen id-vel elem! Kerem adjon meg uj id-t!");
+				System.out.println("Belso Azon: ");
+				id = getUserInput();
+				c = new Raklap(id, name, goods, quantity);
+				o.add(c);
+			}
+			else
+			{
+				c = new Raklap(id, name, goods, quantity);
+				o.add(c);
+			}
 
-		ToFile();
+		}
+
+
+		PrintWriter datafile = new PrintWriter("ki.txt");
+		datafile.println(o);
+		datafile.flush();
+		datafile.close();
+		listflush();
 
 
 	}
@@ -167,6 +205,7 @@ class View
 /*---------- L I S T A Z A S ----------*/
 	public void rendelesListazas() throws IOException
 	{
+		read();
 		Iterator<Raklap> i = o.iterator();
 		Object a;
 		while(i.hasNext())
@@ -177,10 +216,15 @@ class View
 				System.out.println(a);
 			}
 		}
+		listflush();
+
 	}
 /*----------M O D O S I T A S--------*/
 	public void Modositas() throws IOException
 	{
+		read();
+		//rendelesListazas();
+		System.out.println();
 		System.out.println("Modositando tetel szama: ");
 		int number = getUserInput();
 
@@ -205,14 +249,19 @@ class View
 
 			}
 		}
-		ToFile();
+		PrintWriter datafile = new PrintWriter("ki.txt");
+		datafile.println(o);
+		datafile.flush();
+		datafile.close();
+		listflush();
+
 	}
 
 /*---------- T O R L E S ----------*/
 
 	public void Torles() throws IOException
 	{
-
+		read();
 		System.out.println("Torlendo tetel szama: ");
 		int number = getUserInput();
 
@@ -224,34 +273,16 @@ class View
         iter.remove();
     	}
 		}
-		ToFile();
-
-
-	}
-
-/*soronkent kiiratas fajlba*/
-	public void ToFile()
-	{
-		ListIterator<Raklap> iter = o.listIterator();
 		PrintWriter datafile = new PrintWriter("ki.txt");
-		try
-		{
-			while(iter.hasNext())
-			{
+		datafile.println(o);
+		datafile.flush();
+		datafile.close();
+		listflush();
 
-				String sor=iter.toString();
-				datafile.println(sor);
-
-			}
-			datafile.flush();
-			datafile.close();
-		}
-		catch(IOException ex)
-		{
-			System.out.println("Wrong!");
-		}
 
 	}
+
+
 
 
 /*---------- I N C O R R E C T ----------*/
@@ -260,5 +291,20 @@ class View
 		System.out.println();
 		System.out.println("Incorrect command.");
 		System.out.println();
+	}
+
+	public void listflush()
+	{
+		try
+		{
+			o=null;
+		}
+		catch(IllegalStateException ex)
+		{
+			System.out.println();
+			System.out.println("Hiba.");
+			System.out.println();
+		}
+
 	}
 }//END OF CLASS
