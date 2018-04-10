@@ -3,7 +3,7 @@ import java.net.*;
 import java.util.*;
 import java.lang.*;
 
-class View
+class Diszpecser
 {
 /*---------- V A L T O Z O K ----------*/
 	private Controller contr;
@@ -13,15 +13,14 @@ class View
 	public int db;
 
 /*----------- C O N T R O L L E R ----------*/
-	public View(Controller contr)
+	public Diszpecser(Controller contr)
 	{
 		this.contr = contr;
 	}
 
 /*----------- V I E W ----------*/
-	public View()
+	public Diszpecser()
 	{
-
 		o = new ArrayList<Szallitas>();
 	}
 
@@ -136,7 +135,7 @@ class View
 				}
 				catch(NumberFormatException ex)
 				{
-					System.out.println("Wrong read!");
+					System.out.println("Sikertelen beolvasas!");
 				}
 			}
 		}
@@ -167,7 +166,7 @@ class View
 			}
 			catch(NullPointerException ex)
 			{
-				System.out.println("Wrong beszallito read!");
+				System.out.println("Sikertelen beszallito beolvasas!");
 			}
 		}
 

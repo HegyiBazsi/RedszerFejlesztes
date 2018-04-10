@@ -9,12 +9,12 @@ class Client
 
 	private void start()
 	{
-		View view = new View();
+		Diszpecser diszpecser = new Diszpecser();
 		boolean finished = false;
 		while(! finished)
 		{
-			view.showMenu();
-			finished = view.executeServer();
+			diszpecser.showMenu();
+			finished = diszpecser.executeServer();
 		}
 	}
 }
