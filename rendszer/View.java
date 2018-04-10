@@ -116,7 +116,7 @@ class View
 	{
 		BufferedReader be = new BufferedReader(new FileReader("ki.txt"));
 		String in = new String("");
-
+		o.clear();
 		while(!((in=be.readLine())==null))
 		{
 			String[] line= in.split("\\,");
@@ -124,7 +124,10 @@ class View
 			{
 				String[] adat = line[i].split("\\|");
 				adat[0]=adat[0].substring(1,adat[0].length());
-				adat[3]=adat[3].substring(0,adat[3].length()-1);
+				if(i==line.length-1)
+				{
+						adat[3]=adat[3].substring(0,adat[3].length()-1);
+				}
 				//System.out.println(adat[0].toString());
 				//System.out.println(adat[3].toString());
 				try
@@ -153,7 +156,7 @@ class View
 				System.out.println(a);
 			}
 		}
-		listflush();
+
 	}
 
 /*----------F E L V E T E L----------*/
@@ -171,12 +174,14 @@ class View
 
 		System.out.println("Mennyiseg: ");
 		int quantity = getUserInput();
+		c = new Raklap(id, name, goods, quantity);
+		o.add(c);
 
-		Iterator<Raklap> i = o.iterator();
+		/*Iterator<Raklap> i = o.iterator();
 		while(i.hasNext())
 		{
-			int ID=i.next().getInternalID();
-			if(ID==id)
+
+			if(i.hasNext().id==id)
 			{
 				System.out.println("Van mar ilyen id-vel elem! Kerem adjon meg uj id-t!");
 				System.out.println("Belso Azon: ");
@@ -190,14 +195,14 @@ class View
 				o.add(c);
 			}
 
-		}
+		}*/
 
 
 		PrintWriter datafile = new PrintWriter("ki.txt");
 		datafile.println(o);
 		datafile.flush();
 		datafile.close();
-		listflush();
+
 
 
 	}
@@ -216,7 +221,7 @@ class View
 				System.out.println(a);
 			}
 		}
-		listflush();
+
 
 	}
 /*----------M O D O S I T A S--------*/
@@ -253,7 +258,7 @@ class View
 		datafile.println(o);
 		datafile.flush();
 		datafile.close();
-		listflush();
+
 
 	}
 
@@ -277,7 +282,7 @@ class View
 		datafile.println(o);
 		datafile.flush();
 		datafile.close();
-		listflush();
+
 
 
 	}
@@ -293,18 +298,5 @@ class View
 		System.out.println();
 	}
 
-	public void listflush()
-	{
-		try
-		{
-			o=null;
-		}
-		catch(IllegalStateException ex)
-		{
-			System.out.println();
-			System.out.println("Hiba.");
-			System.out.println();
-		}
 
-	}
 }//END OF CLASS
