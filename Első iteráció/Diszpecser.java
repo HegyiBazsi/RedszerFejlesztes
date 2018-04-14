@@ -152,11 +152,11 @@ class Diszpecser
 			Szallitas element = i.next();
 			if(element.getInternalID() > max)
 			{
-				max = element.getInternalID() + 1;
+				max = element.getInternalID();
 			}
 		}
 
-		int id = max;
+		int id = max+1;
 
 		System.out.println("Beszallito neve: ");
 		String name = readUserInput();
