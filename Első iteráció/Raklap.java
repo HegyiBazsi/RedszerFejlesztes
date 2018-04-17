@@ -33,6 +33,6 @@ class Raklap
 /*To*/
 	public String toString()
 	{
-		return this.supplier_name + " " + this.internalid + " " + this.hibas_e;
+		return this.supplier_name + " " + this.innerId + " " + this.hibas_e;
 	}
 }
