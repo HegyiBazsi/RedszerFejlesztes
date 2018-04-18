@@ -10,6 +10,9 @@ class Raktaros
   	public List<Szallitas> szallitasok;
   	public Szallitas temp;
     public List<Raklap> raklapok;
+    public String inputfile="szallitasok.txt";
+    public int TerminalStationRows; // minden terminalnal van egy lepakolo allomas ami egy matrix
+    public int TerminalStationCols; // aminek ez a ket valtozo a sor es oszlop szama
 
   	public int db;
 
@@ -23,11 +26,8 @@ class Raktaros
     	{
     		System.out.println();
     		System.out.println("Raktar Rendszer");
-    		System.out.println("1 - Adatok beolvasas");
-    		System.out.println("2 - Foglalas Felvitele");
-    		System.out.println("3 - Listazas");
-    		System.out.println("4 - Modositas");
-    		System.out.println("5 - Torles");
+        System.out.println("1 - Szallitasok beolvasasa");
+        System.out.println("2 - Import Adatok Felvitele");
     		System.out.println("9 - Exit");
     	}
 
@@ -106,7 +106,7 @@ class Raktaros
     /*---------- R E A D ----------*/
     	private void read() throws IOException
     	{
-    		BufferedReader be = new BufferedReader(new FileReader("ki.txt"));
+    		BufferedReader be = new BufferedReader(new FileReader(inputfile));
     		String in = new String("");
     		szallitasok.clear();
     		while(!((in=be.readLine())==null))
@@ -132,21 +132,23 @@ class Raktaros
     			}
     		}
     	}
-    /*---------- L I S T A Z A S ----------*/
-    	public void rendelesListazas() throws IOException
-    	{
-    		read();
-    		Iterator<Szallitas> i = szallitasok.iterator();
-    		Object a;
-    		while(i.hasNext())
-    		{
-    			a=i.next();
-    			if(a instanceof Szallitas)
-    			{
-    				System.out.println(a);
-    			}
-    		}
-    	}
+      /*---------- L I S T A Z A S ----------*/
+      	public void rendelesListazas() throws IOException
+      	{
+      		read();
+      		Iterator<Szallitas> i = szallitasok.iterator();
+      		System.out.println("+-----------------------------------------------+");
+      		System.out.println("|\t|\t|Number\t|\t\t|\t|");
+      		System.out.println("|ID\t|Suppl\t|of\t|Date\t\t|Gate\t|");
+      		System.out.println("|\t|\t|Palets\t|\t\t|\t|");
+      		System.out.println("+-----------------------------------------------+");
+      		while(i.hasNext())
+      		{
+      			Szallitas element = i.next();
+      		  System.out.println("|"+element.getInternalID()+"\t|"+element.getsupplier_name()+"\t|"+element.getquantity()+"\t|"+element.getDate()+"\t|"+element.getTerminal()+"\t|");
+      		}
+      		System.out.println("+-----------------------------------------------+");
+      	}
 
     /*-------B E E R K E Z O  R A K L A P  F E L V E T E L E ---------- */
     private void importfelvet() throws IOException
@@ -154,7 +156,7 @@ class Raktaros
       read();
       rendelesListazas();
       System.out.println();
-  		System.out.println("Modositando tetel szama: ");
+  		System.out.println("Beerkezo szallitas azonositoja: ");
   		int number = getUserInput();
 
   		ListIterator<Szallitas> iter = szallitasok.listIterator();
@@ -164,13 +166,34 @@ class Raktaros
   			{
             int id = number;
             int palets = iter.next().getquantity();
-            System.out.println("Raklap szam: ");
+            System.out.println("Raklap szam: " + palets);
             for(int i=0; i<palets; i++)
             {
-              System.out.println("Hibas-e? (Igen: true, Nem: false): ");
-      				String name = readUserInput();
+               String suppname=iter.next().getsupplier_name();
+               int shipid=iter.next().getInternalID();
+               String temp=suppname.substring(1,3);
+               String innerId= temp + String.valueOf(shipid) + String.valueOf(i);
+
+               Raklap tempraklap= new Raklap(suppname,innerId,false);
+               raklapok.add(tempraklap);
 
             }
+
+            //matrix kiiratas
+            System.out.println("Kapuknal levo mezo sorainak szama: ");
+        		TerminalStationRows = getUserInput();
+
+            System.out.println("Kapuknal levo mezo oszlopainak szama: ");
+        		TerminalStationCols = getUserInput();
+
+            for(int i=0; i<TerminalStationRows; i++)
+            {
+              for(int j=0; j<TerminalStationCols; j++)
+              {
+
+              }
+            }
+
         }
       }
     }
