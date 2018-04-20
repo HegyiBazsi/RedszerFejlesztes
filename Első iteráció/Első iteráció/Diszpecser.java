@@ -175,7 +175,11 @@ class Diszpecser
 		tempszallitas = new Szallitas(id, name, quantity, date, terminal);
 		szallitasok.add(tempszallitas);
 
+<<<<<<< HEAD:Első iteráció/Diszpecser.java
 		PrintWriter datafile = new PrintWriter(inputfile);
+=======
+		PrintWriter datafile = new PrintWriter("ki.txt");
+>>>>>>> 59f35785f423ce45169d073a73a652e786366f57:Első iteráció/Első iteráció/Diszpecser.java
 		datafile.println(szallitasok);
 		datafile.flush();
 		datafile.close();
@@ -229,7 +233,11 @@ class Diszpecser
 				iter.set(tempszallitas);
 			}
 		}
+<<<<<<< HEAD:Első iteráció/Diszpecser.java
 		PrintWriter datafile = new PrintWriter(inputfile);
+=======
+		PrintWriter datafile = new PrintWriter("ki.txt");
+>>>>>>> 59f35785f423ce45169d073a73a652e786366f57:Első iteráció/Első iteráció/Diszpecser.java
 		datafile.println(szallitasok);
 		datafile.flush();
 		datafile.close();
@@ -252,7 +260,11 @@ class Diszpecser
         iter.remove();
     	}
 		}
+<<<<<<< HEAD:Első iteráció/Diszpecser.java
 		PrintWriter datafile = new PrintWriter(inputfile);
+=======
+		PrintWriter datafile = new PrintWriter("ki.txt");
+>>>>>>> 59f35785f423ce45169d073a73a652e786366f57:Első iteráció/Első iteráció/Diszpecser.java
 		datafile.println(szallitasok);
 		datafile.flush();
 		datafile.close();

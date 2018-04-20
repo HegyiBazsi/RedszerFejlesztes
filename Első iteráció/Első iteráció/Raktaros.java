@@ -28,7 +28,10 @@ class Raktaros
     		System.out.println("Raktar Rendszer");
         System.out.println("1 - Szallitasok beolvasasa");
         System.out.println("2 - Import Adatok Felvitele");
+<<<<<<< HEAD:Első iteráció/Raktaros.java
         System.out.println("3 - Export Adatok Felvitele");
+=======
+>>>>>>> 59f35785f423ce45169d073a73a652e786366f57:Első iteráció/Első iteráció/Raktaros.java
     		System.out.println("9 - Exit");
     	}
 
@@ -135,6 +138,7 @@ class Raktaros
     		}
     	}
       /*---------- L I S T A Z A S ----------*/
+<<<<<<< HEAD:Első iteráció/Raktaros.java
       public void rendelesListazas() throws IOException
       {
         read();
@@ -150,6 +154,24 @@ class Raktaros
         }
         System.out.format("+-----------------------------------------------------------------------+%n");
       }
+=======
+      	public void rendelesListazas() throws IOException
+      	{
+      		read();
+      		Iterator<Szallitas> i = szallitasok.iterator();
+      		System.out.println("+-----------------------------------------------+");
+      		System.out.println("|\t|\t|Number\t|\t\t|\t|");
+      		System.out.println("|ID\t|Suppl\t|of\t|Date\t\t|Gate\t|");
+      		System.out.println("|\t|\t|Palets\t|\t\t|\t|");
+      		System.out.println("+-----------------------------------------------+");
+      		while(i.hasNext())
+      		{
+      			Szallitas element = i.next();
+      		  System.out.println("|"+element.getInternalID()+"\t|"+element.getsupplier_name()+"\t|"+element.getquantity()+"\t|"+element.getDate()+"\t|"+element.getTerminal()+"\t|");
+      		}
+      		System.out.println("+-----------------------------------------------+");
+      	}
+>>>>>>> 59f35785f423ce45169d073a73a652e786366f57:Első iteráció/Első iteráció/Raktaros.java
 
     /*-------B E E R K E Z O  R A K L A P  F E L V E T E L E ---------- */
     private void importfelvet() throws IOException
@@ -161,6 +183,7 @@ class Raktaros
   		int number = getUserInput();
 
   		ListIterator<Szallitas> iter = szallitasok.listIterator();
+<<<<<<< HEAD:Első iteráció/Raktaros.java
       try
       {
         while(iter.hasNext())
@@ -196,6 +219,42 @@ class Raktaros
                 }
               }
           }
+=======
+  		while(iter.hasNext())
+  		{
+  			if(number == iter.next().getInternalID())
+  			{
+            int id = number;
+            int palets = iter.next().getquantity();
+            System.out.println("Raklap szam: " + palets);
+            for(int i=0; i<palets; i++)
+            {
+               String suppname=iter.next().getsupplier_name();
+               int shipid=iter.next().getInternalID();
+               String temp=suppname.substring(1,3);
+               String innerId= temp + String.valueOf(shipid) + String.valueOf(i);
+
+               Raklap tempraklap= new Raklap(suppname,innerId,false);
+               raklapok.add(tempraklap);
+
+            }
+
+            //matrix kiiratas
+            System.out.println("Kapuknal levo mezo sorainak szama: ");
+        		TerminalStationRows = getUserInput();
+
+            System.out.println("Kapuknal levo mezo oszlopainak szama: ");
+        		TerminalStationCols = getUserInput();
+
+            for(int i=0; i<TerminalStationRows; i++)
+            {
+              for(int j=0; j<TerminalStationCols; j++)
+              {
+
+              }
+            }
+
+>>>>>>> 59f35785f423ce45169d073a73a652e786366f57:Első iteráció/Első iteráció/Raktaros.java
         }
     }
     catch(NullPointerException e)
