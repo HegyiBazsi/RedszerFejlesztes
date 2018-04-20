@@ -10,6 +10,9 @@ class Raktaros
   	public List<Szallitas> szallitasok;
   	public Szallitas temp;
     public List<Raklap> raklapok;
+    public String inputfile="szallitasok.txt";
+    public int TerminalStationRows; // minden terminalnal van egy lepakolo allomas ami egy matrix
+    public int TerminalStationCols; // aminek ez a ket valtozo a sor es oszlop szama
 
   	public int db;
 
@@ -23,11 +26,9 @@ class Raktaros
     	{
     		System.out.println();
     		System.out.println("Raktar Rendszer");
-    		System.out.println("1 - Adatok beolvasas");
-    		System.out.println("2 - Foglalas Felvitele");
-    		System.out.println("3 - Listazas");
-    		System.out.println("4 - Modositas");
-    		System.out.println("5 - Torles");
+        System.out.println("1 - Szallitasok beolvasasa");
+        System.out.println("2 - Import Adatok Felvitele");
+        System.out.println("3 - Export Adatok Felvitele");
     		System.out.println("9 - Exit");
     	}
 
@@ -71,6 +72,7 @@ class Raktaros
   			{
   				case 1: read(); break;
   				case 2: importfelvet(); break;
+          case 3: exportfelvet(); break;
   				default: Incorrect(); break;
   				//contr.execute(cmd);
   			}
@@ -106,7 +108,7 @@ class Raktaros
     /*---------- R E A D ----------*/
     	private void read() throws IOException
     	{
-    		BufferedReader be = new BufferedReader(new FileReader("ki.txt"));
+    		BufferedReader be = new BufferedReader(new FileReader(inputfile));
     		String in = new String("");
     		szallitasok.clear();
     		while(!((in=be.readLine())==null))
@@ -132,21 +134,22 @@ class Raktaros
     			}
     		}
     	}
-    /*---------- L I S T A Z A S ----------*/
-    	public void rendelesListazas() throws IOException
-    	{
-    		read();
-    		Iterator<Szallitas> i = szallitasok.iterator();
-    		Object a;
-    		while(i.hasNext())
-    		{
-    			a=i.next();
-    			if(a instanceof Szallitas)
-    			{
-    				System.out.println(a);
-    			}
-    		}
-    	}
+      /*---------- L I S T A Z A S ----------*/
+      public void rendelesListazas() throws IOException
+      {
+        read();
+        Iterator<Szallitas> i = szallitasok.iterator();
+        String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d |%n";
+        System.out.format("+-----------------------------------------------------------------------+%n");
+        System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	| %n");
+        System.out.format("+-----------------------------------------------------------------------+%n");
+        while(i.hasNext())
+        {
+          Szallitas element = i.next();
+          System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal());
+        }
+        System.out.format("+-----------------------------------------------------------------------+%n");
+      }
 
     /*-------B E E R K E Z O  R A K L A P  F E L V E T E L E ---------- */
     private void importfelvet() throws IOException
@@ -154,26 +157,75 @@ class Raktaros
       read();
       rendelesListazas();
       System.out.println();
-  		System.out.println("Modositando tetel szama: ");
+  		System.out.println("Beerkezo szallitas azonositoja: ");
   		int number = getUserInput();
 
   		ListIterator<Szallitas> iter = szallitasok.listIterator();
-  		while(iter.hasNext())
-  		{
-  			if(number == iter.next().getInternalID())
-  			{
-            int id = number;
-            int palets = iter.next().getquantity();
-            System.out.println("Raklap szam: ");
-            for(int i=0; i<palets; i++)
-            {
-              System.out.println("Hibas-e? (Igen: true, Nem: false): ");
-      				String name = readUserInput();
+      try
+      {
+        while(iter.hasNext())
+    		{
+    			if(number == iter.next().getInternalID())
+    			{
+              int id = number;
+              int palets = iter.next().getquantity();
+              System.out.println("Raklap szam: " + palets);
+              for(int i=0; i<palets; i++)
+              {
+                 String suppname=iter.next().getsupplier_name();
+                 int shipid=iter.next().getInternalID();
+                 String temp=suppname.substring(1,3);
+                 String innerId= temp + String.valueOf(shipid) + String.valueOf(i);
 
-            }
+                 Raklap tempraklap= new Raklap(suppname,innerId,false);
+                 raklapok.add(tempraklap);
+              }
+
+              //matrix kiiratas
+              System.out.println("Kapuknal levo mezo sorainak szama: ");
+          		TerminalStationRows = getUserInput();
+
+              System.out.println("Kapuknal levo mezo oszlopainak szama: ");
+          		TerminalStationCols = getUserInput();
+
+              for(int i=0; i<TerminalStationRows; i++)
+              {
+                for(int j=0; j<TerminalStationCols; j++)
+                {
+
+                }
+              }
+          }
         }
-      }
     }
+    catch(NullPointerException e)
+    {
+      System.out.println("Baj van");
+    }
+    }//END OF FUN
+
+    /*-------K I M E N O   R A K L A P  F E L V E T E L E ---------- */
+    private void exportfelvet() throws IOException
+    {
+      read();
+      rendelesListazas();
+
+      System.out.println("Adja meg a beszallito nevet: ");
+      String name = readUserInput();
+
+      System.out.println("Adja meg a datumot: ");
+      String export_date = readUserInput();
+
+      ListIterator<Szallitas> iter = szallitasok.listIterator();
+
+  		while(iter.hasNext())
+      {
+        	if( name.equals(iter.next().getsupplier_name()) && export_date.equals(iter.next().getDate()) )
+          {
+              
+          }
+      }
+    }//END OF FUN
 
     /*---------- I N C O R R E C T ----------*/
   	private void Incorrect()

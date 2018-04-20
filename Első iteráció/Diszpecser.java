@@ -7,9 +7,10 @@ class Diszpecser
 {
 /*---------- V A L T O Z O K ----------*/
 	private Controller contr;
-	public List<Szallitas> o;
-	public Szallitas c;
+	public List<Szallitas> szallitasok;
+	public Szallitas tempszallitas;
 	public int db;
+	public String inputfile="szallitasok.txt";
 
 /*----------- C O N T R O L L E R ----------*/
 	public Diszpecser(Controller contr)
@@ -20,13 +21,13 @@ class Diszpecser
 /*----------- V I E W ----------*/
 	public Diszpecser()
 	{
-		o = new ArrayList<Szallitas>();
+		szallitasok = new ArrayList<Szallitas>();
 	}
 
 /*---------- H O Z Z A A D----------*/
 	public void hozzaad(Szallitas x)
 	{
-		o.add(x);
+		szallitasok.add(x);
 	}
 
 /*---------- S H O W   M E N U ----------*/
@@ -113,9 +114,9 @@ class Diszpecser
 /*---------- R E A D ----------*/
 	private void read() throws IOException
 	{
-		BufferedReader be = new BufferedReader(new FileReader("ki.txt"));
+		BufferedReader be = new BufferedReader(new FileReader(inputfile));
 		String in = new String("");
-		o.clear();
+		szallitasok.clear();
 		while(!((in=be.readLine())==null))
 		{
 			String[] line= in.split("\\,");
@@ -123,13 +124,14 @@ class Diszpecser
 			{
 				String[] adat = line[i].split("\\|");
 				adat[0]=adat[0].substring(1,adat[0].length());
+
 				if(i==line.length-1)
 				{
 						adat[4]=adat[4].substring(0,adat[4].length()-1);
 				}
 				try
 				{
-					o.add(new Szallitas(Integer.parseInt(adat[0]), adat[1], Integer.parseInt(adat[2]),
+					szallitasok.add(new Szallitas(Integer.parseInt(adat[0]), adat[1], Integer.parseInt(adat[2]),
 					adat[3], Integer.parseInt(adat[4])));
 				}
 				catch(NumberFormatException ex)
@@ -146,7 +148,7 @@ class Diszpecser
 		read();
 		int max = 0;
 
-		Iterator<Szallitas> i = o.iterator();
+		Iterator<Szallitas> i = szallitasok.iterator();
 		while(i.hasNext())
 		{
 			Szallitas element = i.next();
@@ -170,11 +172,11 @@ class Diszpecser
 		System.out.println("Terminal szama: ");
 		int terminal = getUserInput();
 
-		c = new Szallitas(id, name, quantity, date, terminal);
-		o.add(c);
+		tempszallitas = new Szallitas(id, name, quantity, date, terminal);
+		szallitasok.add(tempszallitas);
 
-		PrintWriter datafile = new PrintWriter("ki.txt");
-		datafile.println(o);
+		PrintWriter datafile = new PrintWriter(inputfile);
+		datafile.println(szallitasok);
 		datafile.flush();
 		datafile.close();
 	}
@@ -183,16 +185,18 @@ class Diszpecser
 	public void rendelesListazas() throws IOException
 	{
 		read();
-		Iterator<Szallitas> i = o.iterator();
-		Object a;
+		Iterator<Szallitas> i = szallitasok.iterator();
+		System.out.println("+-----------------------------------------------+");
+		System.out.println("|\t|\t|Number\t|\t\t|\t|");
+		System.out.println("|ID\t|Suppl\t|of\t|Date\t\t|Gate\t|");
+		System.out.println("|\t|\t|Palets\t|\t\t|\t|");
+		System.out.println("+-----------------------------------------------+");
 		while(i.hasNext())
 		{
-			a=i.next();
-			if(a instanceof Szallitas)
-			{
-				System.out.println(a);
-			}
+			Szallitas element = i.next();
+		  System.out.println("|"+element.getInternalID()+"\t|"+element.getsupplier_name()+"\t|"+element.getquantity()+"\t|"+element.getDate()+"\t|"+element.getTerminal()+"\t|");
 		}
+		System.out.println("+-----------------------------------------------+");
 	}
 /*----------M O D O S I T A S--------*/
 	public void Modositas() throws IOException
@@ -203,7 +207,7 @@ class Diszpecser
 		System.out.println("Modositando tetel szama: ");
 		int number = getUserInput();
 
-		ListIterator<Szallitas> iter = o.listIterator();
+		ListIterator<Szallitas> iter = szallitasok.listIterator();
 		while(iter.hasNext())
 		{
 			if(number == iter.next().getInternalID())
@@ -221,12 +225,12 @@ class Diszpecser
 				System.out.println("Terminal szama: ");
 				int terminal = getUserInput();
 
-				c = new Szallitas(id, name, quantity, date, terminal);
-				iter.set(c);
+				tempszallitas = new Szallitas(id, name, quantity, date, terminal);
+				iter.set(tempszallitas);
 			}
 		}
-		PrintWriter datafile = new PrintWriter("ki.txt");
-		datafile.println(o);
+		PrintWriter datafile = new PrintWriter(inputfile);
+		datafile.println(szallitasok);
 		datafile.flush();
 		datafile.close();
 	}
@@ -240,7 +244,7 @@ class Diszpecser
 		System.out.println("Torlendo tetel szama: ");
 		int number = getUserInput();
 
-		ListIterator<Szallitas> iter = o.listIterator();
+		ListIterator<Szallitas> iter = szallitasok.listIterator();
 		while(iter.hasNext())
 		{
     	if(number == iter.next().getInternalID())
@@ -248,8 +252,8 @@ class Diszpecser
         iter.remove();
     	}
 		}
-		PrintWriter datafile = new PrintWriter("ki.txt");
-		datafile.println(o);
+		PrintWriter datafile = new PrintWriter(inputfile);
+		datafile.println(szallitasok);
 		datafile.flush();
 		datafile.close();
 	}
