@@ -91,10 +91,8 @@ class Raktaros
   	public Raktaros()
   	{
   		szallitasok = new ArrayList<Szallitas>();
-      //kiszallitasok = new ArrayList<Szallitas>();
       importok = new ArrayList<Raklap>();
       exportok = new ArrayList<Raklap>();
-
   	}
 
   /*---------- I N T   I N P U T ----------*/
@@ -127,23 +125,21 @@ class Raktaros
     			{
     				String[] adat = line[i].split("\\|");
     				adat[0]=adat[0].substring(1,adat[0].length());
-    				if(i==line.length-1)
+            if(i==line.length-1)
     				{
-    						adat[4]=adat[4].substring(0,adat[4].length()-1);
+    						adat[6]=adat[6].substring(0,adat[6].length()-1);
     				}
     				try
     				{
     					szallitasok.add(new Szallitas(Integer.parseInt(adat[0]), adat[1], Integer.parseInt(adat[2]),
-    					adat[3], Integer.parseInt(adat[4])));
+    					adat[3], Integer.parseInt(adat[4]), adat[5], Boolean.parseBoolean(adat[6])));
     				}
     				catch(NumberFormatException ex)
     				{
     					System.out.println("Sikertelen beolvasas!");
     				}
     			}
-    		}//end of while
-        System.out.println("Sikeresen be lettek olvasva a szallitasok!");
-        System.out.println();
+    		}
     	}
 
       /*---------- I M P O R T   R E A D ----------*/
@@ -159,14 +155,14 @@ class Raktaros
       			{
       				String[] adat = line[i].split("\\|");
       				adat[0]=adat[0].substring(1,adat[0].length());
-      				if(i==line.length-1)
-      				{
-      						adat[4]=adat[4].substring(0,adat[4].length()-1);
-      				}
-      				try
-      				{
-      					importok.add(new Raklap(adat[0],adat[1],Integer.parseInt(adat[2]), Boolean.parseBoolean(adat[3]),adat[4]));
-      				}
+              if(i==line.length-1)
+              {
+                  adat[5]=adat[5].substring(0,adat[5].length()-1);
+              }
+              try
+              {
+                exportok.add(new Raklap(adat[0],adat[1],Integer.parseInt(adat[2]), Boolean.parseBoolean(adat[3]),adat[4], Boolean.parseBoolean(adat[5])));
+              }
       				catch(NumberFormatException ex)
       				{
       					System.out.println("Sikertelen beolvasas!");
@@ -190,11 +186,11 @@ class Raktaros
         				adat[0]=adat[0].substring(1,adat[0].length());
         				if(i==line.length-1)
         				{
-        						adat[4]=adat[4].substring(0,adat[4].length()-1);
+        						adat[5]=adat[5].substring(0,adat[5].length()-1);
         				}
         				try
         				{
-        					exportok.add(new Raklap(adat[0],adat[1],Integer.parseInt(adat[2]), Boolean.parseBoolean(adat[3]),adat[4]));
+        					exportok.add(new Raklap(adat[0],adat[1],Integer.parseInt(adat[2]), Boolean.parseBoolean(adat[3]),adat[4], Boolean.parseBoolean(adat[5])));
         				}
         				catch(NumberFormatException ex)
         				{
@@ -207,65 +203,80 @@ class Raktaros
       /*---------- R E N D E L E S  L I S T A Z A S ----------*/
       	public void rendelesListazas() throws IOException
       	{
-          read();
-          Iterator<Szallitas> i = szallitasok.iterator();
-          String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d |%n";
-          System.out.format("+-----------------------------------------------------------------------+%n");
-          System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	| %n");
-          System.out.format("+-----------------------------------------------------------------------+%n");
-          while(i.hasNext())
+          try
           {
-            Szallitas element = i.next();
-            System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal());
+              read();
           }
-          System.out.format("+-----------------------------------------------------------------------+%n");
+          catch(StringIndexOutOfBoundsException ex)
+          {
+            System.out.println("Shipping File is empty!");
+          }
+          Iterator<Szallitas> i = szallitasok.iterator();
+          String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d | %-13s | %-13s |%n";
+      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	|Type | Frozen |%n");
+      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		while(i.hasNext())
+      		{
+      			Szallitas element = i.next();
+      		  System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal(), element.getType(), element.getFrozen());
+      		}
+      		System.out.format("+-----------------------------------------------------------------------+%n");
       	}
 
-        /*---------- I M P O R T  L I S T A Z A S ----------*/
-        	public void importListazas() throws IOException
-        	{
-        		Iterator<Raklap> i = importok.iterator();
-        		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %n";
+    /*---------- I M P O R T  L I S T A Z A S ----------*/
+    	public void importListazas() throws IOException
+    	{
+    		Iterator<Raklap> i = importok.iterator();
+    		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
 
-        		System.out.format("+---------------------------------------------------------------------------+%n");
-        		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | %n");
-        		System.out.format("+---------------------------------------------------------------------------+%n");
-        		while(i.hasNext())
-        		{
-        			Raklap element = i.next();
-        		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate());
-        		}
-        		System.out.format("+---------------------------------------------------------------------------+%n");
-        	}
+    		System.out.format("+---------------------------------------------------------------------------+%n");
+    		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen | %n");
+    		System.out.format("+---------------------------------------------------------------------------+%n");
+    		while(i.hasNext())
+    		{
+    			Raklap element = i.next();
+    		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
+    		}
+    		System.out.format("+---------------------------------------------------------------------------+%n");
+    	}
 
-          /*---------- E X P O R T  L I S T A Z A S ----------*/
-          	public void exportListazas() throws IOException
-          	{
-              Iterator<Raklap> i = exportok.iterator();
-          		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %n";
+      /*---------- E X P O R T  L I S T A Z A S ----------*/
+      	public void exportListazas() throws IOException
+      	{
+          Iterator<Raklap> i = exportok.iterator();
+          String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
 
-          		System.out.format("+---------------------------------------------------------------------------+%n");
-          		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | %n");
-          		System.out.format("+---------------------------------------------------------------------------+%n");
-          		while(i.hasNext())
-          		{
-          			Raklap element = i.next();
-          		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate());
-          		}
-          		System.out.format("+---------------------------------------------------------------------------+%n");
-          	}
+      		System.out.format("+---------------------------------------------------------------------------+%n");
+      		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen | %n");
+      		System.out.format("+---------------------------------------------------------------------------+%n");
+      		while(i.hasNext())
+      		{
+      			Raklap element = i.next();
+      		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
+      		}
+      		System.out.format("+---------------------------------------------------------------------------+%n");
+      	}
 
     /*-------B E E R K E Z O  R A K L A P  F E L V E T E L E ---------- */
     private void importfelvet() throws IOException
     {
-      read();
+      try
+      {
+          read();
+      }
+      catch(StringIndexOutOfBoundsException ex)
+      {
+        System.out.println("Shipping File is empty!");
+      }
+
       try
       {
           importRead();
       }
       catch(StringIndexOutOfBoundsException ex)
       {
-        System.out.println("File is empty!");
+        System.out.println("Imports File is empty!");
       }
       rendelesListazas();
       System.out.println();
@@ -294,9 +305,10 @@ class Raktaros
                  String temp=suppname.substring(0,2);
                  String innerId= temp + String.valueOf(shipid) + String.valueOf(i);
                  String datum = element.getDate();
+                 Boolean frozen = element.getFrozen();
                  try
                  {
-                   importok.add(new Raklap(suppname,innerId,id,false,datum));
+                   importok.add(new Raklap(suppname,innerId,id,false,datum,frozen));
                  }
                  catch(NoSuchMethodError ex)
                  {
@@ -318,7 +330,14 @@ class Raktaros
     /*-------K I M E N O  R A K L A P  F E L V E T E L E ---------- */
     private void exportfelvet() throws IOException
     {
-      read();
+      try
+      {
+          read();
+      }
+      catch(StringIndexOutOfBoundsException ex)
+      {
+        System.out.println("Shipping File is empty!");
+      }
 
       try
       {
@@ -326,7 +345,7 @@ class Raktaros
       }
       catch(StringIndexOutOfBoundsException ex)
       {
-        System.out.println("File is empty!");
+        System.out.println("Exports File is empty!");
       }
       rendelesListazas();
       System.out.println();
@@ -349,8 +368,8 @@ class Raktaros
                 int supID = element.getSupplID();
                 boolean fault = element.getHibase();
                 String datum = element.getDate();
-                Raklap temp = new Raklap(suppname,inID,supID,fault,datum);
-                exportok.add(temp);
+                Boolean frozen = element.getFrozen();
+                exportok.add(new Raklap(suppname,inID,supID,fault,datum,frozen));
                 }
               }
             catch (NullPointerException e)
@@ -396,8 +415,9 @@ class Raktaros
               String suppname=curr.getSupplierName();
               int supplId = curr.getSupplID();
               String date = curr.getDate();
+              Boolean frozen = curr.getFrozen();
 
-              it.set(new Raklap(suppname,innerId,supplId,true,date));
+              it.set(new Raklap(suppname,innerId,supplId,true,date,frozen));
             }
           }
         }

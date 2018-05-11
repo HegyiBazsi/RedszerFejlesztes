@@ -127,12 +127,12 @@ class Diszpecser
 
 				if(i==line.length-1)
 				{
-						adat[4]=adat[4].substring(0,adat[4].length()-1);
+						adat[6]=adat[6].substring(0,adat[6].length()-1);
 				}
 				try
 				{
 					szallitasok.add(new Szallitas(Integer.parseInt(adat[0]), adat[1], Integer.parseInt(adat[2]),
-					adat[3], Integer.parseInt(adat[4])));
+					adat[3], Integer.parseInt(adat[4]), adat[5], Boolean.parseBoolean(adat[6])));
 				}
 				catch(NumberFormatException ex)
 				{
@@ -145,7 +145,14 @@ class Diszpecser
 /*----------F E L V E T E L----------*/
 	private void rendelesFelvetel() throws IOException
 	{
-		read();
+		try
+		{
+				read();
+		}
+		catch(StringIndexOutOfBoundsException ex)
+		{
+			System.out.println("Shipping File is empty!");
+		}
 		int max = 0;
 
 		Iterator<Szallitas> i = szallitasok.iterator();
@@ -172,7 +179,13 @@ class Diszpecser
 		System.out.println("Terminal szama: ");
 		int terminal = getUserInput();
 
-		tempszallitas = new Szallitas(id, name, quantity, date, terminal);
+		System.out.println("Szallitas tipusa(BE/KI): ");
+		String type = readUserInput();
+
+		System.out.println("Hutott-e (true/false): ");
+		String frozen = readUserInput();
+
+		tempszallitas = new Szallitas(id, name, quantity, date, terminal,type,Boolean.parseBoolean(frozen));
 		szallitasok.add(tempszallitas);
 
 		PrintWriter datafile = new PrintWriter(inputfile);
@@ -184,23 +197,37 @@ class Diszpecser
 /*---------- L I S T A Z A S ----------*/
 	public void rendelesListazas() throws IOException
 	{
-		read();
+		try
+		{
+				read();
+		}
+		catch(StringIndexOutOfBoundsException ex)
+		{
+			System.out.println("Shipping File is empty!");
+		}
 		Iterator<Szallitas> i = szallitasok.iterator();
-		String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d |%n";
+		String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d | %-13s | %-13s |%n";
 		System.out.format("+-----------------------------------------------------------------------+%n");
-		System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	| %n");
+		System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	|Type | Frozen |%n");
 		System.out.format("+-----------------------------------------------------------------------+%n");
 		while(i.hasNext())
 		{
 			Szallitas element = i.next();
-		  System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal());
+		  System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal(), element.getType(), element.getFrozen());
 		}
 		System.out.format("+-----------------------------------------------------------------------+%n");
 	}
 /*----------M O D O S I T A S--------*/
 	public void Modositas() throws IOException
 	{
-		read();
+		try
+		{
+				read();
+		}
+		catch(StringIndexOutOfBoundsException ex)
+		{
+			System.out.println("Shipping File is empty!");
+		}
 		//rendelesListazas();
 		System.out.println();
 		System.out.println("Modositando tetel szama: ");
@@ -224,7 +251,13 @@ class Diszpecser
 				System.out.println("Terminal szama: ");
 				int terminal = getUserInput();
 
-				tempszallitas = new Szallitas(id, name, quantity, date, terminal);
+				System.out.println("Szallitas tipusa(BE/KI): ");
+				String type = readUserInput();
+
+				System.out.println("Hutott-e (true/false): ");
+				String frozen = readUserInput();
+
+				tempszallitas = new Szallitas(id, name, quantity, date, terminal,type,Boolean.parseBoolean(frozen));
 				iter.set(tempszallitas);
 			}
 		}
@@ -238,7 +271,14 @@ class Diszpecser
 
 	public void Torles() throws IOException
 	{
-		read();
+		try
+		{
+				read();
+		}
+		catch(StringIndexOutOfBoundsException ex)
+		{
+			System.out.println("Shipping File is empty!");
+		}
 		rendelesListazas();
 		System.out.println("Torlendo tetel szama: ");
 		int number = getUserInput();
