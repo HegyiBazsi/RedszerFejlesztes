@@ -15,6 +15,7 @@ class Raktaros
     public String inputfile="szallitasok.txt";
     public String importokfile = "importok.txt";
     public String exportokfile = "exportok.txt";
+    public boolean van_mar;
 
   /*----------- C O N T R O L L E R ----------*/
   	public Raktaros(Controller contr)
@@ -306,10 +307,31 @@ class Raktaros
                  String innerId= temp + String.valueOf(shipid) + String.valueOf(i);
                  String datum = element.getDate();
                  Boolean frozen = element.getFrozen();
+
                  try
                  {
-                   importok.add(new Raklap(suppname,innerId,id,false,datum,frozen));
-                 }
+                  Iterator<Raklap> listiter = importok.iterator();
+                  while(listiter.hasNext())
+               		{
+
+                    Raklap elem = listiter.next();
+               			if(elem.getSupplID() != id)
+               			{
+               			      van_mar=false;
+               			}
+                    else
+                    {
+                        System.out.println("Van mar ilyen import felveve!");
+                        System.out.println();
+                        van_mar=true;
+                    }
+               		}//end of check while
+                  if(van_mar==false)
+                  {
+                    importok.add(new Raklap(suppname,innerId,id,false,datum,frozen));
+                  }
+
+                }//end of try
                  catch(NoSuchMethodError ex)
                  {
                    System.out.println("Sikertelen beolvasas!");
@@ -369,9 +391,28 @@ class Raktaros
                 boolean fault = element.getHibase();
                 String datum = element.getDate();
                 Boolean frozen = element.getFrozen();
-                exportok.add(new Raklap(suppname,inID,supID,fault,datum,frozen));
+                Iterator<Raklap> i = exportok.iterator();
+                while(i.hasNext())
+                {
+
+                  Raklap elem = i.next();
+                  if(elem.getSupplID() != supplId)
+                  {
+                      van_mar=false;
+                  }
+                  else
+                  {
+                      System.out.println("Van mar ilyen export felveve!");
+                      System.out.println();
+                      van_mar=true;
+                  }
+                }//end of check while
+                if(van_mar==false)
+                {
+                  exportok.add(new Raklap(suppname,inID,supID,fault,datum,frozen));
                 }
-              }
+              }//end of if
+            }
             catch (NullPointerException e)
             {
               System.out.println("GEBASZ");

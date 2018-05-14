@@ -1,8 +1,11 @@
 import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.lang.*;
 
 class Client
 {
-	public boolean finished;
+
 
 	public static void main(String[] args)
 	{
@@ -11,52 +14,35 @@ class Client
 
 	/*---------- V A L T O Z O K ----------*/
 	public String inputfile="users.txt";
-	public List<Users> users;
+	public List<User> users;
+	public boolean finishclient;
+	public int choice;
+	public boolean finished;
+	public int title;
 
 	public Client()
 	{
-			users = new ArrayList<Users>();
+			users = new ArrayList<User>();
 	}
 
 	private void start()
 	{
 		try
 		{
-			boolean finishclient = false;
+			finishclient = false;
 			while(! finishclient)
 			{
-				System.out.println("Kerem valassza ki a belepo tipusat: (1. Diszpecser, 2. Raktaros 3. Konyvelo 4. Kilepes)");
-				int choice = getUserInput();
+				System.out.print("Kerem valassza ki hogy mit szeretne csinalni(1. Belepes, 2. Regisztracio 3. Kilepes): ");
+				choice = getUserInput();
 				switch(choice)
 				{
 					case 1:
-						Diszpecser diszpecser = new Diszpecser();
-						finished = false;
-						while(! finished)
-						{
-							diszpecser.showMenu();
-							finished = diszpecser.executeServer();
-						}
+						login();
 					break;
 					case 2:
-						Raktaros raktaros = new Raktaros();
-						finished = false;
-						while(! finished)
-						{
-							raktaros.showMenu();
-							finished=raktaros.executeServer();
-						}
+						register();
 					break;
 					case 3:
-						Konyvelo konyvelo = new Konyvelo();
-						finished = false;
-						while(! finished)
-						{
-							konyvelo.showMenu();
-							finished=konyvelo.executeServer();
-						}
-					break;
-					case 4:
 						finishclient= true;
 					break;
 				}//end of switch
@@ -105,7 +91,7 @@ class Client
 					}
 					try
 					{
-						users.add(new User(adat[0], adat[1], adat[2]));
+						users.add(new User(adat[0], adat[1], Integer.parseInt(adat[2])));
 					}
 					catch(NumberFormatException ex)
 					{
@@ -117,104 +103,150 @@ class Client
 
 		public void login()
 		{
-			read();
-			System.out.println("Kerem adja meg a felhasznalo nevet:");
-			String username = readUserInput();
-			System.out.println("Kerem adja meg a jelszavat:");
-			String password = readUserInput();
-			Iterator<User> i = users.iterator();
-			int choice;
-			while(i.hasNext())
+			try
 			{
-				User element = i.next();
-				if((element.getUsername().equals(username)) && ((element.getPassword().equals(password))))
+				try
 				{
-					choice = element.getTitle();
+						read();
+				}
+				catch(StringIndexOutOfBoundsException ex)
+				{
+					System.out.println("Users file is empty!");
 				}
 			}
-
-			switch(choice)
+			catch(IOException ex)
 			{
-				case 1:
-					Diszpecser diszpecser = new Diszpecser();
-					finished = false;
-					while(! finished)
+				System.out.println("Could not find file!");
+			}//end of read try
+
+			try
+			{
+				System.out.println("Kerem adja meg a felhasznalo nevet:");
+				String username = readUserInput();
+				System.out.println("Kerem adja meg a jelszavat:");
+				String password = readUserInput();
+				Iterator<User> i = users.iterator();
+
+				while(i.hasNext())
+				{
+					User element = i.next();
+					if((element.getUsername().equals(username)) && ((element.getPassword().equals(password))))
 					{
-						diszpecser.showMenu();
-						finished = diszpecser.executeServer();
+						title = element.getTitle();
 					}
-				break;
-				case 2:
-					Raktaros raktaros = new Raktaros();
-					finished = false;
-					while(! finished)
-					{
-						raktaros.showMenu();
-						finished=raktaros.executeServer();
-					}
-				break;
-				case 3:
-					Konyvelo konyvelo = new Konyvelo();
-					finished = false;
-					while(! finished)
-					{
-						konyvelo.showMenu();
-						finished=konyvelo.executeServer();
-					}
-				break;
-				case 4:
-					finishclient= true;
-				break;
-			}//end of switch
+				}
+
+				switch(title)
+				{
+					case 1:
+						Diszpecser diszpecser = new Diszpecser();
+						finished = false;
+						while(! finished)
+						{
+							diszpecser.showMenu();
+							finished = diszpecser.executeServer();
+						}
+					break;
+					case 2:
+						Raktaros raktaros = new Raktaros();
+						finished = false;
+						while(! finished)
+						{
+							raktaros.showMenu();
+							finished=raktaros.executeServer();
+						}
+					break;
+					case 3:
+						Konyvelo konyvelo = new Konyvelo();
+						finished = false;
+						while(! finished)
+						{
+							konyvelo.showMenu();
+							finished=konyvelo.executeServer();
+						}
+					break;
+					case 4:
+						finishclient= true;
+					break;
+				}//end of switch
+			}// end of main try
+			catch(IOException ex)
+			{
+				System.out.println("Somethin went wrong!");
+			}
+
+
+
 
 		}//end of login
 
 		public void register()
 		{
-			read();
-			System.out.println("Kerem adja meg a felhasznalo nevet:");
-			String username = readUserInput();
-			System.out.println("Kerem adja meg a jelszavat:");
-			String password = readUserInput();
-			System.out.println("Kerem adja meg a munkajat ugy ahogy fel van sorolva(Diszpecser/Raktaros/Konyvelo):");
-			String title = readUserInput();
+			try
+			{
+				try
+				{
+						read();
+				}
+				catch(StringIndexOutOfBoundsException ex)
+				{
+					System.out.println("Users file is empty!");
+				}
+			}
+			catch(IOException ex)
+			{
+				System.out.println("Could not find file!");
+			}
+			try
+			{
+				System.out.println("Kerem adja meg a felhasznalo nevet:");
+				String username = readUserInput();
+				System.out.println("Kerem adja meg a jelszavat:");
+				String password = readUserInput();
+				System.out.println("Kerem adja meg a munkajat ugy ahogy fel van sorolva(Diszpecser/Raktaros/Konyvelo):");
+				String designation = readUserInput();
+				if(designation.equals("Diszpecser"))
+				{
+					title=1;
+				}
+				else if(designation.equals("Raktaros"))
+				{
+					title=2;
+				}
+				else if(designation.equals("Konyvelo"))
+				{
+					title=3;
+				}
+				else
+				{
+					System.out.println("Rossz adatot adott meg a munkajara.");
+					System.out.println("Kerem adja meg a munkajat ujra ugy ahogy fel van sorolva(Diszpecser/Raktaros/Konyvelo):");
+					designation = readUserInput();
+					if(designation.equals("Diszpecser"))
+					{
+						title=1;
+					}
+					else if(designation.equals("Raktaros"))
+					{
+						title=2;
+					}
+					else if(designation.equals("Konyvelo"))
+					{
+						title=3;
+					}
+				}// end of kiertekeles
 
-			if(title.equals(Diszpecser))
+				User temp = new User(username,password,title);
+				users.add(temp);
+				PrintWriter datafile = new PrintWriter(inputfile);
+				datafile.println(users);
+				datafile.flush();
+				datafile.close();
+			}//end of try
+			catch(IOException ex)
 			{
-				int title=1;
+				System.out.println("Something went wrong!");
 			}
-			else if(title.equals(Raktaros))
-			{
-				int title=2;
-			}
-			else if(title.equals(Diszpecser))
-			{
-				int title=3;
-			}
-			else
-			{
-				System.out.println("Rossz adatot adott meg a munkajara.");
-				System.out.println("Kerem adja meg a munkajat ujra ugy ahogy fel van sorolva(Diszpecser/Raktaros/Konyvelo):");
-				String title = readUserInput();
-				if(title.equals(Diszpecser))
-				{
-					int title=1;
-				}
-				else if(title.equals(Raktaros))
-				{
-					int title=2;
-				}
-				else if(title.equals(Diszpecser))
-				{
-					int title=3;
-				}
-			}// end of kiertekeles
 
-			User temp = new User(username,password,title);
-			users.add(temp);
-			PrintWriter datafile = new PrintWriter(inputfile);
-			datafile.println(users);
-			datafile.flush();
-			datafile.close();
 		}
 }
