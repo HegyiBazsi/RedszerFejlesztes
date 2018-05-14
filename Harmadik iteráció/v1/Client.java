@@ -95,7 +95,9 @@ class Client
 					}
 					catch(NumberFormatException ex)
 					{
+						System.out.println();
 						System.out.println("Sikertelen beolvasas!");
+						System.out.println();
 					}
 				}
 			}
@@ -111,20 +113,29 @@ class Client
 				}
 				catch(StringIndexOutOfBoundsException ex)
 				{
+					System.out.println();
 					System.out.println("Users file is empty!");
+					System.out.println();
 				}
 			}
 			catch(IOException ex)
 			{
+				System.out.println();
 				System.out.println("Could not find file!");
+				System.out.println();
 			}//end of read try
 
 			try
 			{
-				System.out.println("Kerem adja meg a felhasznalo nevet:");
+				System.out.println();
+				System.out.println("+-----------------------------------------------------------+");
+				System.out.print("| Kerem adja meg a felhasznalo nevet: ");
 				String username = readUserInput();
-				System.out.println("Kerem adja meg a jelszavat:");
+				System.out.println("+-----------------------------------------------------------+");
+				System.out.print("| Kerem adja meg a jelszavat: ");
 				String password = readUserInput();
+				System.out.println("+-----------------------------------------------------------+");
+				System.out.println();
 				Iterator<User> i = users.iterator();
 
 				while(i.hasNext())
@@ -172,7 +183,9 @@ class Client
 			}// end of main try
 			catch(IOException ex)
 			{
-				System.out.println("Somethin went wrong!");
+				System.out.println();
+				System.out.println("Something went wrong!");
+				System.out.println();
 			}
 
 
@@ -190,21 +203,27 @@ class Client
 				}
 				catch(StringIndexOutOfBoundsException ex)
 				{
+					System.out.println();
 					System.out.println("Users file is empty!");
+					System.out.println();
 				}
 			}
 			catch(IOException ex)
 			{
+				System.out.println();
 				System.out.println("Could not find file!");
+				System.out.println();
 			}
 			try
 			{
+				System.out.println();
 				System.out.println("Kerem adja meg a felhasznalo nevet:");
 				String username = readUserInput();
 				System.out.println("Kerem adja meg a jelszavat:");
 				String password = readUserInput();
 				System.out.println("Kerem adja meg a munkajat ugy ahogy fel van sorolva(Diszpecser/Raktaros/Konyvelo):");
 				String designation = readUserInput();
+				System.out.println();
 				if(designation.equals("Diszpecser"))
 				{
 					title=1;

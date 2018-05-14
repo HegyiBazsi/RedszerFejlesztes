@@ -62,6 +62,8 @@ class Konyvelo
     try
     {
       Socket socket = new Socket("localhost", 10000);
+      System.out.println();
+      System.out.print("Kerem valassa ki a menupontot: ");
       int cmd = getUserInput();
       System.out.println();
       if (cmd == 9)
@@ -207,15 +209,15 @@ class Konyvelo
     		Iterator<Raklap> i = importok.iterator();
     		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
 
-    		System.out.format("+---------------------------------------------------------------------------+%n");
-    		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen | %n");
-    		System.out.format("+---------------------------------------------------------------------------+%n");
+    		System.out.format("+-----------------------------------------------------------------------------------+%n");
+    		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen   | %n");
+    		System.out.format("+-----------------------------------------------------------------------------------+%n");
     		while(i.hasNext())
     		{
     			Raklap element = i.next();
     		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
     		}
-    		System.out.format("+---------------------------------------------------------------------------+%n");
+    		System.out.format("+-----------------------------------------------------------------------------------+%n");
     	}
 
       /*---------- E X P O R T  L I S T A Z A S ----------*/
@@ -248,15 +250,15 @@ class Konyvelo
           }
           Iterator<Szallitas> i = szallitasok.iterator();
           String leftAlignFormat = "| %-4d | %-14s | %-13s |%n";
-      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		System.out.format("+---------------------------------------+%n");
       		System.out.format("| ID   | Supplier name	|Date		|%n");
-      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		System.out.format("+---------------------------------------+%n");
       		while(i.hasNext())
       		{
       			Szallitas element = i.next();
       		  System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getDate());
       		}
-      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		System.out.format("+---------------------------------------+%n");
         }
 
 
@@ -266,14 +268,14 @@ class Konyvelo
         		Iterator<Raklap> i = forgalom.iterator();
         		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
 
-        		System.out.format("+---------------------------------------------------------------------------+%n");
-        		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen | %n");
-        		System.out.format("+---------------------------------------------------------------------------+%n");
+        		System.out.format("+---------------------------------------------------------------------------------------+%n");
+        		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen    | %n");
+        		System.out.format("+---------------------------------------------------------------------------------------+%n");
         		while(i.hasNext())
         		{
         			Raklap element = i.next();
         		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
         		}
-        		System.out.format("+---------------------------------------------------------------------------+%n");
+        		System.out.format("+---------------------------------------------------------------------------------------+%n");
         	}
 }//E N D   O F    C L A S S

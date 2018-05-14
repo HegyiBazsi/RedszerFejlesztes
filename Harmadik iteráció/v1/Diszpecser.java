@@ -49,6 +49,8 @@ class Diszpecser
 		try
 		{
 			Socket socket = new Socket("localhost", 10000);
+			System.out.println();
+			System.out.print("Kerem valassa ki a menupontot: ");
 			int cmd = getUserInput();
 			System.out.println();
 			if (cmd == 9)
@@ -206,16 +208,16 @@ class Diszpecser
 			System.out.println("Shipping File is empty!");
 		}
 		Iterator<Szallitas> i = szallitasok.iterator();
-		String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d | %-13s | %-13s |%n";
-		System.out.format("+-----------------------------------------------------------------------+%n");
+		String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d | %-3s | %-6s |%n";
+		System.out.format("+--------------------------------------------------------------------------------------+%n");
 		System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	|Type | Frozen |%n");
-		System.out.format("+-----------------------------------------------------------------------+%n");
+		System.out.format("+--------------------------------------------------------------------------------------+%n");
 		while(i.hasNext())
 		{
 			Szallitas element = i.next();
 		  System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal(), element.getType(), element.getFrozen());
 		}
-		System.out.format("+-----------------------------------------------------------------------+%n");
+		System.out.format("+--------------------------------------------------------------------------------------+%n");
 	}
 /*----------M O D O S I T A S--------*/
 	public void Modositas() throws IOException

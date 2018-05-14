@@ -15,7 +15,10 @@ class Raktaros
     public String inputfile="szallitasok.txt";
     public String importokfile = "importok.txt";
     public String exportokfile = "exportok.txt";
-    public boolean van_mar;
+    public List<Raklap> Raktar;
+    public List<Raklap> Hutott_Raktar;
+    public static int dbhelyek=500;
+    public static int dbh_helyek=100;
 
   /*----------- C O N T R O L L E R ----------*/
   	public Raktaros(Controller contr)
@@ -70,6 +73,8 @@ class Raktaros
     		try
     		{
     			Socket socket = new Socket("localhost", 10000);
+          System.out.println();
+          System.out.print("Kerem valassa ki a menupontot: ");
     			int cmd = getUserInput();
     			System.out.println();
     			if (cmd == 9)
@@ -94,6 +99,10 @@ class Raktaros
   		szallitasok = new ArrayList<Szallitas>();
       importok = new ArrayList<Raklap>();
       exportok = new ArrayList<Raklap>();
+
+      Raktar = new ArrayList<Raklap>(dbhelyek);
+      Hutott_Raktar = new ArrayList<Raklap>(dbh_helyek);
+
   	}
 
   /*---------- I N T   I N P U T ----------*/
@@ -205,79 +214,82 @@ class Raktaros
       	public void rendelesListazas() throws IOException
       	{
           try
-          {
-              read();
-          }
-          catch(StringIndexOutOfBoundsException ex)
-          {
-            System.out.println("Shipping File is empty!");
-          }
+    			{
+    				try
+    				{
+    						read();
+    				}
+    				catch(StringIndexOutOfBoundsException ex)
+    				{
+    					System.out.println();
+    					System.out.println("Szallitasok file is empty!");
+    					System.out.println();
+    				}
+    			}
+    			catch(IOException ex)
+    			{
+    				System.out.println();
+    				System.out.println("Could not find file!");
+    				System.out.println();
+    			}//end of read try
           Iterator<Szallitas> i = szallitasok.iterator();
-          String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d | %-13s | %-13s |%n";
-      		System.out.format("+-----------------------------------------------------------------------+%n");
+          String leftAlignFormat = "| %-4d | %-14s | %-13d | %-13s | %-13d | %-3s | %-6s |%n";
+      		System.out.format("+--------------------------------------------------------------------------------------+%n");
       		System.out.format("| ID   | Supplier name	| Quantity	|Date		|Terminal	|Type | Frozen |%n");
-      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		System.out.format("+--------------------------------------------------------------------------------------+%n");
       		while(i.hasNext())
       		{
       			Szallitas element = i.next();
       		  System.out.format(leftAlignFormat, element.getInternalID(), element.getsupplier_name(), element.getquantity(), element.getDate(), element.getTerminal(), element.getType(), element.getFrozen());
       		}
-      		System.out.format("+-----------------------------------------------------------------------+%n");
+      		System.out.format("+--------------------------------------------------------------------------------------+%n");
       	}
 
-    /*---------- I M P O R T  L I S T A Z A S ----------*/
-    	public void importListazas() throws IOException
-    	{
-    		Iterator<Raklap> i = importok.iterator();
-    		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
+        /*---------- I M P O R T  L I S T A Z A S ----------*/
+        	public void importListazas() throws IOException
+        	{
+        		Iterator<Raklap> i = importok.iterator();
+        		String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
 
-    		System.out.format("+---------------------------------------------------------------------------+%n");
-    		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen | %n");
-    		System.out.format("+---------------------------------------------------------------------------+%n");
-    		while(i.hasNext())
-    		{
-    			Raklap element = i.next();
-    		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
-    		}
-    		System.out.format("+---------------------------------------------------------------------------+%n");
-    	}
+            System.out.format("+---------------------------------------------------------------------------------------+%n");
+        		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen    | %n");
+        		System.out.format("+---------------------------------------------------------------------------------------+%n");
+        		while(i.hasNext())
+        		{
+        			Raklap element = i.next();
+        		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
+        		}
+        		System.out.format("+---------------------------------------------------------------------------------------+%n");
+        	}
 
-      /*---------- E X P O R T  L I S T A Z A S ----------*/
-      	public void exportListazas() throws IOException
-      	{
-          Iterator<Raklap> i = exportok.iterator();
-          String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
+          /*---------- E X P O R T  L I S T A Z A S ----------*/
+          	public void exportListazas() throws IOException
+          	{
+              Iterator<Raklap> i = exportok.iterator();
+              String leftAlignFormat = "| %-9s | %-17s | %-9s | %-9s | %-17s | %-9s |%n";
 
-      		System.out.format("+---------------------------------------------------------------------------+%n");
-      		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen | %n");
-      		System.out.format("+---------------------------------------------------------------------------+%n");
-      		while(i.hasNext())
-      		{
-      			Raklap element = i.next();
-      		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
-      		}
-      		System.out.format("+---------------------------------------------------------------------------+%n");
-      	}
+              System.out.format("+---------------------------------------------------------------------------------------+%n");
+          		System.out.format("| InnerID   | Supplier name	| Supply ID | Damaged	| Date              | Frozen    | %n");
+          		System.out.format("+---------------------------------------------------------------------------------------+%n");
+          		while(i.hasNext())
+          		{
+          			Raklap element = i.next();
+          		  System.out.format(leftAlignFormat, element.getInnerId(), element.getSupplierName(), element.getSupplID(), element.getHibase(), element.getDate(), element.getFrozen());
+          		}
+          		System.out.format("+---------------------------------------------------------------------------------------+%n");
+          	}
 
     /*-------B E E R K E Z O  R A K L A P  F E L V E T E L E ---------- */
     private void importfelvet() throws IOException
     {
-      try
-      {
-          read();
-      }
-      catch(StringIndexOutOfBoundsException ex)
-      {
-        System.out.println("Shipping File is empty!");
-      }
-
+      read();
       try
       {
           importRead();
       }
       catch(StringIndexOutOfBoundsException ex)
       {
-        System.out.println("Imports File is empty!");
+        System.out.println("File is empty!");
       }
       rendelesListazas();
       System.out.println();
@@ -307,31 +319,10 @@ class Raktaros
                  String innerId= temp + String.valueOf(shipid) + String.valueOf(i);
                  String datum = element.getDate();
                  Boolean frozen = element.getFrozen();
-
                  try
                  {
-                  Iterator<Raklap> listiter = importok.iterator();
-                  while(listiter.hasNext())
-               		{
-
-                    Raklap elem = listiter.next();
-               			if(elem.getSupplID() != id)
-               			{
-               			      van_mar=false;
-               			}
-                    else
-                    {
-                        System.out.println("Van mar ilyen import felveve!");
-                        System.out.println();
-                        van_mar=true;
-                    }
-               		}//end of check while
-                  if(van_mar==false)
-                  {
-                    importok.add(new Raklap(suppname,innerId,id,false,datum,frozen));
-                  }
-
-                }//end of try
+                   importok.add(new Raklap(suppname,innerId,id,false,datum,frozen));
+                 }
                  catch(NoSuchMethodError ex)
                  {
                    System.out.println("Sikertelen beolvasas!");
@@ -352,14 +343,7 @@ class Raktaros
     /*-------K I M E N O  R A K L A P  F E L V E T E L E ---------- */
     private void exportfelvet() throws IOException
     {
-      try
-      {
-          read();
-      }
-      catch(StringIndexOutOfBoundsException ex)
-      {
-        System.out.println("Shipping File is empty!");
-      }
+      read();
 
       try
       {
@@ -367,7 +351,7 @@ class Raktaros
       }
       catch(StringIndexOutOfBoundsException ex)
       {
-        System.out.println("Exports File is empty!");
+        System.out.println("File is empty!");
       }
       rendelesListazas();
       System.out.println();
@@ -390,29 +374,11 @@ class Raktaros
                 int supID = element.getSupplID();
                 boolean fault = element.getHibase();
                 String datum = element.getDate();
-                Boolean frozen = element.getFrozen();
-                Iterator<Raklap> i = exportok.iterator();
-                while(i.hasNext())
-                {
-
-                  Raklap elem = i.next();
-                  if(elem.getSupplID() != supplId)
-                  {
-                      van_mar=false;
-                  }
-                  else
-                  {
-                      System.out.println("Van mar ilyen export felveve!");
-                      System.out.println();
-                      van_mar=true;
-                  }
-                }//end of check while
-                if(van_mar==false)
-                {
-                  exportok.add(new Raklap(suppname,inID,supID,fault,datum,frozen));
+                boolean frozen = element.getFrozen();
+                Raklap temp = new Raklap(suppname,inID,supID,fault,datum,frozen);
+                exportok.add(temp);
                 }
-              }//end of if
-            }
+              }
             catch (NullPointerException e)
             {
               System.out.println("GEBASZ");
@@ -456,7 +422,7 @@ class Raktaros
               String suppname=curr.getSupplierName();
               int supplId = curr.getSupplID();
               String date = curr.getDate();
-              Boolean frozen = curr.getFrozen();
+              boolean frozen = curr.getFrozen();
 
               it.set(new Raklap(suppname,innerId,supplId,true,date,frozen));
             }
